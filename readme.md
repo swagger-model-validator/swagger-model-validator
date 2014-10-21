@@ -41,25 +41,25 @@ This returns a validation results object
 
 ```
 {
-\tvalid: true,
-\terrorCount: 0
+  valid: true,
+  errorCount: 0
 }
 ```
 or if validation fails
 ```
 {
-\tvalid: false,
-\terrorCount: 2,
-\terrors: [
-\t\t{
-\t\t\tname: 'Error',
-\t\t\tmessage: 'An error occurred'
-\t\t},
-\t\t{
-\t\t\tname: 'Error',
-\t\t\tmessage: 'Another error occurred'
-\t\t}
-\t ]
+  valid: false,
+  errorCount: 2,
+  errors: [
+    {
+      name: 'Error',
+      message: 'An error occurred'
+    },
+    {
+      name: 'Error',
+      message: 'Another error occurred'
+    }
+  ]
 }
 ```
 
