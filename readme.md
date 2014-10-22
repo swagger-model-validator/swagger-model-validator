@@ -4,7 +4,7 @@
 
 This is a validation module for [Swagger](https://github.com/wordnik/swagger-spec) models Node.js.
 
-See the [swagger-node-express](https://github.com/wordnik/swagger-node-express/blob/master/SAMPLE.md) sample formmore details about Swagger in Node.js.
+See the [swagger-node-express](https://github.com/wordnik/swagger-node-express/blob/master/SAMPLE.md) sample for more details about Swagger in Node.js.
 
 ## What's Swagger?
 
@@ -19,7 +19,8 @@ A Swagger Model contains the definitions of the incoming (or outgoing) object pr
 This package provides a module to do just that.
 
 ### Limitations
-This edition of the swagger-model-validator will not validate models that contain other models via the $ref keyword.  It will also not validate arrays.
+This edition of the swagger-model-validator will not validate models referenced in a model by the $ref keyword.  
+It will also not validate arrays (either arrays of objects or strings, integers, etc...)
 
 It currently treats int32 and int64 the same.
 It currently treats float and decimal the same.
@@ -78,18 +79,26 @@ You can also call the validation directly
 var validation = validator.validate(object, swaggerModel);
 ```
 
-will return the same valdiation results but requires the actual swagger model and not its name.
+will return the same validation results but requires the actual swagger model and not its name.
 
 ## License
 
-Copyright 2014 Atlantis Healthcare Limited.
+Copyright (c) 2014 Atlantis Healthcare Limited.
 
-Licensed under the Apache License, Version 2.0 (the \"License\");
-You may not use this file except in compliance with the License.
-You may obtain a copy of the License at [apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an \"AS IS\" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

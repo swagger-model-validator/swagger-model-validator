@@ -1,9 +1,9 @@
 {
     "name": "swagger-model-validator",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Validate incoming objects against Swagger Models.",
     "keywords": [ "Swagger", "Validation" ],
-    "licence": "apache 2.0",
+    "licence": "MIT",
     "author": "Brody Dunn",
     "bugs": {
         "url": "https://github.com/atlantishealthcare/swagger-model-validator/issues"
