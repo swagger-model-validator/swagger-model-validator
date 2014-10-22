@@ -18,6 +18,15 @@ A Swagger Model contains the definitions of the incoming (or outgoing) object pr
 
 This package provides a module to do just that.
 
+### Limitations
+This edition of the swagger-model-validator will not validate models that contain other models via the $ref keyword.  It will also not validate arrays.
+
+It currently treats int32 and int64 the same.
+It currently treats float and decimal the same.
+It currently treats date and date-time the same.
+
+It is planned that it will validate everything correctly as time allows.
+
 ### Installation
 Install swagger-model-validator
 
@@ -63,7 +72,13 @@ or if validation fails
 }
 ```
 
-then create the validator and hook it up to your swagger client or use it directly.
+You can also call the validation directly
+
+```
+var validation = validator.validate(object, swaggerModel);
+```
+
+will return the same valdiation results but requires the actual swagger model and not its name.
 
 ## License
 
