@@ -1,5 +1,4 @@
 # Validate incoming objects against Swagger Models for Node.js
-
 [ ![Codeship Status for atlantishealthcare/swagger-model-validator](https://codeship.io/projects/a4ec3310-3b9b-0132-060c-1e7e00028aa9/status)](https://codeship.io/projects/42728)
 
 This is a validation module for [Swagger](https://github.com/wordnik/swagger-spec) models Node.js.
@@ -7,13 +6,11 @@ This is a validation module for [Swagger](https://github.com/wordnik/swagger-spe
 See the [swagger-node-express](https://github.com/wordnik/swagger-node-express/blob/master/SAMPLE.md) sample for more details about Swagger in Node.js.
 
 ## What's Swagger?
-
 The goal of Swagger™ is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, Swager removes the guesswork in calling the service.
 
 Check out [Swagger-Spec](https://github.com/wordnik/swagger-spec) for additional information about the Swagger project, including additional libraries with support for other languages and more. 
 
 ## Validating Swagger Models?
-
 A Swagger Model contains the definitions of the incoming (or outgoing) object properties.  Validating an incoming object matches the Swagger Model Definition is a valuable check that the correct data has been provided.
 
 This package provides a module to do just that.
@@ -22,11 +19,14 @@ This package provides a module to do just that.
 This edition of the swagger-model-validator will not validate models referenced in a model by the $ref keyword.  
 It will also not validate arrays (either arrays of objects or strings, integers, etc...)
 
-It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.  As long as the value can be parsed by parseInt in javascript.
-It currently treats float and decimal the same but this is because javascript cannot cope with a decimal (at the moment).
-It validates the date and date-time correctly.  It treats all dates as dates and tests with a parseDate check.  If this passes then it checks 'date' format against a length of 10 (a quick check against the ISO8601 standard - a full-date must be 10 characters long).
-
 It is planned that it will validate everything correctly as time allows.
+
+### Validation Notes
+It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.  As long as the value can be parsed by parseInt in javascript it will be accepted as an int64.
+
+It currently treats float and decimal the same but this is because javascript cannot cope with a decimal (at the moment). As long as the value can be parsed by parseFloat in javascript it will be accepted as a float or a decimal.
+
+It validates the date and date-time correctly.  It treats all dates (and date-times) as dates and tests with a parseDate check.  If this passes then it checks 'date' format against a length of 10 (a quick check against the ISO8601 standard - a full-date must be 10 characters long).
 
 ### Installation
 Install swagger-model-validator
@@ -82,7 +82,6 @@ var validation = validator.validate(object, swaggerModel);
 will return the same validation results but requires the actual swagger model and not its name.
 
 ## License
-
 Copyright (c) 2014 Atlantis Healthcare Limited.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
