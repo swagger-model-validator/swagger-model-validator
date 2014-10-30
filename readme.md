@@ -22,9 +22,9 @@ This package provides a module to do just that.
 This edition of the swagger-model-validator will not validate models referenced in a model by the $ref keyword.  
 It will also not validate arrays (either arrays of objects or strings, integers, etc...)
 
-It currently treats int32 and int64 the same.
-It currently treats float and decimal the same.
-It currently treats date and date-time the same.
+It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.  As long as the value can be parsed by parseInt in javascript.
+It currently treats float and decimal the same but this is because javascript cannot cope with a decimal (at the moment).
+It validates the date and date-time correctly.  It treats all dates as dates and tests with a parseDate check.  If this passes then it checks 'date' format against a length of 10 (a quick check against the ISO8601 standard - a full-date must be 10 characters long).
 
 It is planned that it will validate everything correctly as time allows.
 

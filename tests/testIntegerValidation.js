@@ -157,5 +157,15 @@ module.exports.validationTests = {
         test.ok(errors.valid);
 
         test.done();
+    },
+    testdecimalcalcFails: function(test) {
+        var v1 = 3.41111111;
+        var v2 = 1.22222222;
+
+        var result = v1 + v2;
+
+        test.expect(1);
+        test.ok(result !== 4.63333333, result);
+        test.done();
     }
 };
