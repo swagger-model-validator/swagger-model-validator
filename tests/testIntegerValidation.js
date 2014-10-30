@@ -114,6 +114,28 @@ module.exports.validationTests = {
 
         test.done();
     },
+    validInteger32TypeFailedTest: function(test) {
+        var data = {
+            id: 3000000000
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
     validInteger64TypeTest: function(test) {
         var data = {
             id: 3000000000
