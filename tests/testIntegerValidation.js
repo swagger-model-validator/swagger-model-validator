@@ -167,5 +167,189 @@ module.exports.validationTests = {
         test.expect(1);
         test.ok(result !== 4.63333333, result);
         test.done();
+    },
+    validIntegerMinimumExceededTest: function(test) {
+        var data = {
+            id: 300
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    minimum: 2400
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validIntegerMinimumTest: function(test) {
+        var data = {
+            id: 300
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    minimum: 300
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validIntegerMaxiumumExceededTest: function(test) {
+        var data = {
+            id: 300
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    maximum: 24
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validIntegerMaxiumumTest: function(test) {
+        var data = {
+            id: 300
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    maximum: 300
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validIntegerMinimumExclusiveExceededTest: function(test) {
+        var data = {
+            id: 300
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    exclusiveMinimum: 300
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validIntegerMaximumExclusiveExceededTest: function(test) {
+        var data = {
+            id: 300
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    exclusiveMaximum: 300
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validIntegerMinimumExclusiveTest: function(test) {
+        var data = {
+            id: 301
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    exclusiveMinimum: 300
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validIntegerMaximumExclusiveTest: function(test) {
+        var data = {
+            id: 299
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    exclusiveMinimum: 300
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
     }
 };
