@@ -167,5 +167,28 @@ module.exports.validationTests = {
         test.expect(1);
         test.ok(result !== 4.63333333, result);
         test.done();
+    },
+    validIntegerMaxiumumExceededTest: function(test) {
+        var data = {
+            id: 300
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    maximum: 24
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
     }
 };
