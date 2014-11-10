@@ -16,17 +16,23 @@ A Swagger Model contains the definitions of the incoming (or outgoing) object pr
 This package provides a module to do just that.
 
 ### Limitations
-This edition of the swagger-model-validator will not validate models referenced in a model by the $ref keyword.  
-It will also not validate arrays (either arrays of objects or strings, integers, etc...)
+This edition of the swagger-model-validator will not validate arrays (either arrays of objects or strings, integers, etc...)
 
 It is planned that it will validate everything correctly as time allows.
 
 ### Validation Notes
-It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.  As long as the value can be parsed by parseInt in javascript it will be accepted as an int64.
+It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
+As long as the value can be parsed by parseInt in javascript it will be accepted as an int64.
 
-It currently treats float and decimal the same but this is because javascript cannot cope with a decimal (at the moment). As long as the value can be parsed by parseFloat in javascript it will be accepted as a float or a decimal.
+It currently treats float and decimal the same but this is because javascript cannot cope with a decimal (at the moment).
+As long as the value can be parsed by parseFloat in javascript it will be accepted as a float or a decimal.
 
-It validates the date and date-time correctly.  It treats all dates (and date-times) as dates and tests with a parseDate check.  If this passes then it checks 'date' format against a length of 10 (a quick check against the ISO8601 standard - a full-date must be 10 characters long).
+It validates the date and date-time correctly.  It treats all dates (and date-times) as dates and tests with a parseDate
+check.  If this passes then it checks 'date' format against a length of 10 (a quick check against the ISO8601 standard
+- a full-date must be 10 characters long).
+
+As from version 0.3 it will now validate models referenced by the $ref keyword but it will only do this if it is called
+by the swagger function validateModel or if the native validate is called with a model array passed in.
 
 ### Installation
 Install swagger-model-validator
@@ -76,10 +82,11 @@ or if validation fails
 You can also call the validation directly
 
 ```
-var validation = validator.validate(object, swaggerModel);
+var validation = validator.validate(object, swaggerModel, swaggerModels);
 ```
 
-will return the same validation results but requires the actual swagger model and not its name.
+will return the same validation results but requires the actual swagger model and not its name.  _The swaggerModels
+parameter is required if you want models referenced by the $ref keyword to be validated as well._
 
 ## License
 Copyright (c) 2014 Atlantis Healthcare Limited.
