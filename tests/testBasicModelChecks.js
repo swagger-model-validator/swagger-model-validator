@@ -40,5 +40,30 @@ module.exports.validationTests = {
         test.ok(errors.errorCount === 1, "ErrorCount = " + errors.errorCount);
 
         test.done();
+    },
+    emptyDataModelFailsTest: function(test) {
+        var model = {
+            description: 'Woah'
+        };
+
+        var errors = validator.validate({}, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errorCount === 1, "ErrorCount = " + errors.errorCount);
+
+        test.done();
+    },
+    emptyDataModelTest: function(test) {
+        var model = {
+            description: 'Woah'
+        };
+
+        var errors = validator.validate({}, model, true);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
     }
 };
