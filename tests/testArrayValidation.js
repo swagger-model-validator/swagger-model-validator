@@ -94,5 +94,64 @@ module.exports.validationTests = {
         test.ok(errors.errors[0].message === 'sample is a required field');
 
         test.done();
+    },
+    arrayValidationFails: function(test) {
+        var data = {
+            sample: [ 1, "2", "tribble" ]
+        };
+        var model = {
+            required: [ 'sample' ],
+            properties: {
+                sample: {
+                    type: 'array',
+                    items: {
+                        type: "integer"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    arrayRefValidationFails: function(test) {
+        var data = {
+            sample: [ { id: 1, name: 'test'}, "2", "tribble" ]
+        };
+        var models = {
+            model: {
+                required: [ 'sample' ],
+                properties: {
+                    sample: {
+                        type: 'array',
+                        items: {
+                            $ref: "refModel"
+                        }
+                    }
+                }
+            },
+            refModel: {
+                required: [ 'id' ],
+                properties: {
+                    id: {
+                        type: "integer"
+                    },
+                    name: {
+                        type: "string"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, models["model"], models);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
     }
 };
