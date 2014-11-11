@@ -177,5 +177,64 @@ module.exports.validationTests = {
         test.ok(errors.valid);
 
         test.done();
+    },
+    validateStringMinLengthFailsTest: function(test) {
+    var data = {
+        sample: true,
+        tag: ""
+    };
+    var model = {
+        required: [],
+        properties: {
+            sample: {
+                type: 'boolean'
+            },
+            truffle: {
+                type: 'boolean'
+            },
+            tag: {
+                type: "string",
+                minLength: 1
+            }
+        }
+    };
+
+    var errors = validator.validate(data, model);
+
+    test.expect(2);
+    test.ok(!errors.valid);
+    test.ok(errors.errors[0].message === 'tag cannot be blank', errors.errors[0].message);
+
+    test.done();
+}
+    ,
+    validateStringMaxLengthFailsTest: function(test) {
+        var data = {
+            sample: true,
+            tag: "12"
+        };
+        var model = {
+            required: [],
+            properties: {
+                sample: {
+                    type: 'boolean'
+                },
+                truffle: {
+                    type: 'boolean'
+                },
+                tag: {
+                    type: "string",
+                    maxLength: 1
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+        //test.ok(false, errors.errors);
+
+        test.done();
     }
 };
