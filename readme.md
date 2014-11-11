@@ -15,11 +15,6 @@ A Swagger Model contains the definitions of the incoming (or outgoing) object pr
 
 This package provides a module to do just that.
 
-### Limitations
-This edition of the swagger-model-validator will not validate arrays (either arrays of objects or strings, integers, etc...)
-
-It is planned that it will validate everything correctly as time allows.
-
 ### Validation Notes
 It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
 As long as the value can be parsed by parseInt in javascript it will be accepted as an int64.
@@ -34,6 +29,7 @@ check.  If this passes then it checks 'date' format against a length of 10 (a qu
 As from version 0.3 it will now validate models referenced by the $ref keyword but it will only do this if it is called
 by the swagger function validateModel or if the native validate is called with a model array passed in.
 
+As from version 1.0.0 it will now validate arrays in models.  It will validate arrays of a type and arrays of a $ref.
 ### Installation
 Install swagger-model-validator
 
