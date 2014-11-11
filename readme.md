@@ -84,6 +84,17 @@ var validation = validator.validate(object, swaggerModel, swaggerModels);
 will return the same validation results but requires the actual swagger model and not its name.  _The swaggerModels
 parameter is required if you want models referenced by the $ref keyword to be validated as well._
 
+### Allowing blank targets to validate
+From 1.0.2 any empty objects passed in as targets will fail validation.  You can bypass this by adding a `true` value to
+the method at the end.
+
+```
+var validation = swagger.validateModel("modelName", target, true);
+```
+
+This will allow an empty object `{ }` to be validated without errors. We consider a blank object to be worthless in most
+cases and so should normally fail, but there is always the chance that it might not be worthless so we've added the bypass.
+
 ## License
 Copyright (c) 2014 Atlantis Healthcare Limited.
 
