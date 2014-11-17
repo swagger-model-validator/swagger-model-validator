@@ -132,6 +132,9 @@ validator.addFieldValidator("testModel", "id", function(name, value) {
 ```
 Now the validator will call this extra function for the 'id' field in the 'testModel' model.
 
+You can add multiple custom validators to the same field.  They will all be run.  If a validator throws an exception it
+will be ignored and validation will continue.
+
 ## License
 Copyright (c) 2014 Atlantis Healthcare Limited.
 
