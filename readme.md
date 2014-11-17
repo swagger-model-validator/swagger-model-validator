@@ -95,6 +95,43 @@ var validation = swagger.validateModel("modelName", target, true);
 This will allow an empty object `{ }` to be validated without errors. We consider a blank object to be worthless in most
 cases and so should normally fail, but there is always the chance that it might not be worthless so we've added the bypass.
 
+##Custom Field Validators
+You can add a custom field validator for a model to the validator from version 1.0.3 onwards.  This allows you to add a
+function that will be called for any specific field that you need valdiated with extra rules.
+
+This function should be in the form
+```
+function(name, value) {
+  if(error) {
+    return new Error(error);
+  } else {
+    return null;
+  }
+}
+```
+It can return either a single Error object or an array of error objects.  These errors will be passed back through the
+validator to the end user.
+
+### Adding a field validator
+Simply make a call to the validator method ```addFieldValidator``` providing the ```modelName```, ```fieldName``` and
+the validation function.
+
+```
+validator.addFieldValidator("testModel", "id", function(name, value) {
+    var errors = []
+    if(value === 34) {
+        errors.push(new Error("Value Cannot be 34"));
+    }
+
+    if(value < 40) {
+        errors.push(new Error("Value must be at least 40"));
+    }
+
+    return errors.length > 0 ? errors : null;
+});
+```
+Now the validator will call this extra function for the 'id' field in the 'testModel' model.
+
 ## License
 Copyright (c) 2014 Atlantis Healthcare Limited.
 
