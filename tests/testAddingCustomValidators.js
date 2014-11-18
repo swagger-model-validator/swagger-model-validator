@@ -162,5 +162,75 @@ module.exports.validatorTests = {
         test.ok(result.valid);
         test.ok(result.errorCount === 0);
         test.done();
+    },
+    testCustomValidationReturnsEmptyArrayRun: function(test) {
+        test.expect(2);
+
+        var model = {
+            id: "testModel",
+            properties: {
+                id: {
+                    type: "integer"
+                }
+            }
+        };
+
+        var data = {
+            id: 41
+        };
+
+        validator = new Validator();
+        validator.addFieldValidator("testModel", "id", function(name, value) {
+            var errors = [];
+            if(value === 34) {
+                errors.push(new Error("Value Cannot be 34"));
+            }
+
+            if(value < 40) {
+                errors.push(new Error("Value must be at least 40"));
+            }
+
+            return errors;
+        });
+        var result = validator.validate(data, model);
+
+        test.ok(result.valid);
+        test.ok(result.errorCount === 0);
+        test.done();
+    },
+    testCustomValidationReturnsUndefinedlRun: function(test) {
+        test.expect(2);
+
+        var model = {
+            id: "testModel",
+            properties: {
+                id: {
+                    type: "integer"
+                }
+            }
+        };
+
+        var data = {
+            id: 41
+        };
+
+        validator = new Validator();
+        validator.addFieldValidator("testModel", "id", function(name, value) {
+            var errors = []
+            if(value === 34) {
+                errors.push(new Error("Value Cannot be 34"));
+            }
+
+            if(value < 40) {
+                errors.push(new Error("Value must be at least 40"));
+            }
+
+            return undefined;
+        });
+        var result = validator.validate(data, model);
+
+        test.ok(result.valid);
+        test.ok(result.errorCount === 0);
+        test.done();
     }
 };
