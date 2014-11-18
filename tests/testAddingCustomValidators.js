@@ -7,7 +7,7 @@ var validator = new Validator();
 
 module.exports.validatorTests = {
     addBlankError: function(test) {
-        test.expect(1)
+        test.expect(1);
         try {
             validator.addFieldValidator();
             test.ok(false);
@@ -27,7 +27,7 @@ module.exports.validatorTests = {
         test.done();
     },
     addBlankFieldNameError: function(test) {
-        test.expect(1)
+        test.expect(1);
         try {
             validator.addFieldValidator("test");
             test.ok(false);
@@ -47,7 +47,7 @@ module.exports.validatorTests = {
         test.done();
     },
     addBlankFunctionError: function(test) {
-        test.expect(1)
+        test.expect(1);
         try {
             validator.addFieldValidator("test", "field");
             test.ok(false);
@@ -90,7 +90,7 @@ module.exports.validatorTests = {
         var result = validator.validate(data, model);
 
         test.ok(!result.valid);
-        test.ok(result.errorCount === 1)
+        test.ok(result.errorCount === 1);
         test.done();
     },
     testCustomValidationReturnsArrayRun: function(test) {
@@ -111,7 +111,7 @@ module.exports.validatorTests = {
 
         validator = new Validator();
         validator.addFieldValidator("testModel", "id", function(name, value) {
-            var errors = []
+            var errors = [];
             if(value === 34) {
                 errors.push(new Error("Value Cannot be 34"));
             }
@@ -146,7 +146,7 @@ module.exports.validatorTests = {
 
         validator = new Validator();
         validator.addFieldValidator("testModel", "id", function(name, value) {
-            var errors = []
+            var errors = [];
             if(value === 34) {
                 errors.push(new Error("Value Cannot be 34"));
             }
@@ -216,7 +216,7 @@ module.exports.validatorTests = {
 
         validator = new Validator();
         validator.addFieldValidator("testModel", "id", function(name, value) {
-            var errors = []
+            var errors = [];
             if(value === 34) {
                 errors.push(new Error("Value Cannot be 34"));
             }
