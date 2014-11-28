@@ -23,8 +23,7 @@ It currently treats float and decimal the same but this is because javascript ca
 As long as the value can be parsed by parseFloat in javascript it will be accepted as a float or a decimal.
 
 It validates the date and date-time correctly.  It treats all dates (and date-times) as dates and tests with a parseDate
-check.  If this passes then it checks 'date' format against a length of 10 (a quick check against the ISO8601 standard
-- a full-date must be 10 characters long).
+check.  If this passes then it checks 'date' format against a length of 10 (a quick check against the ISO8601 standard, a full-date must be 10 characters long).
 
 As from version 0.3 it will now validate models referenced by the $ref keyword but it will only do this if it is called
 by the swagger function validateModel or if the native validate is called with a model array passed in.
@@ -97,7 +96,7 @@ cases and so should normally fail, but there is always the chance that it might 
 
 ##Custom Field Validators
 You can add a custom field validator for a model to the validator from version 1.0.3 onwards.  This allows you to add a
-function that will be called for any specific field that you need valdiated with extra rules.
+function that will be called for any specific field that you need validated with extra rules.
 
 This function should be in the form
 ```
