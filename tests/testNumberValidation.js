@@ -5,7 +5,7 @@ var Validator = require('../lib/modelValidator');
 var validator = new Validator();
 
 module.exports.validationTests = {
-    invalidIntegerTypeTest: function(test) {
+    invalidNumberTypeTest: function(test) {
         var data = {
             id: 'sample'
         };
@@ -13,7 +13,8 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
+                    format: 'double',
                     description: 'The object id'
                 }
             }
@@ -23,11 +24,11 @@ module.exports.validationTests = {
 
         test.expect(2);
         test.ok(!errors.valid);
-        test.ok(errors.errors[0].message === 'id (sample) is not a type of integer', 'message: ' + errors.errors[0].message);
+        test.ok(errors.errors[0].message === 'id (sample) is not a type of double', 'message: ' + errors.errors[0].message);
 
         test.done();
     },
-    invalidIntegerBlankTest: function(test) {
+    invalidNumberBlankTest: function(test) {
         var data = {
             id: ""
         };
@@ -35,7 +36,8 @@ module.exports.validationTests = {
             required: [],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
+                    format: "float",
                     description: 'The object id'
                 }
             }
@@ -45,11 +47,11 @@ module.exports.validationTests = {
 
         test.expect(2);
         test.ok(!errors.valid);
-        test.ok(errors.errors[0].message === 'id ({empty string}) is not a type of integer', errors.errors[0].message);
+        test.ok(errors.errors[0].message === 'id ({empty string}) is not a type of float', errors.errors[0].message);
 
         test.done();
     },
-    invalidIntegerBlankWhenRequiredTest: function(test) {
+    invalidNumberBlankWhenRequiredTest: function(test) {
         var data = {
             id: ""
         };
@@ -57,7 +59,7 @@ module.exports.validationTests = {
             required: ['id'],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id'
                 }
             }
@@ -71,7 +73,7 @@ module.exports.validationTests = {
 
         test.done();
     },
-    validIntegerTypeTest: function(test) {
+    validNumberTypeTest: function(test) {
         var data = {
             id: 1
         };
@@ -79,7 +81,7 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id'
                 }
             }
@@ -92,17 +94,17 @@ module.exports.validationTests = {
 
         test.done();
     },
-    validInteger32TypeTest: function(test) {
+    validNumberDecimalTypeTest: function(test) {
         var data = {
-            id: 1
+            id: 1.2
         };
         var model = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
-                    description: 'The object id',
-                    format: 'int32'
+                    type: 'number',
+                    format: 'double',
+                    description: 'The object id'
                 }
             }
         };
@@ -122,7 +124,7 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
                     format: 'int32'
                 }
@@ -144,9 +146,9 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
-                    format: 'int64'
+                    format: 'float'
                 }
             }
         };
@@ -176,9 +178,9 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
-                    format: 'int32',
+                    format: 'double',
                     minimum: 2400
                 }
             }
@@ -199,9 +201,9 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
-                    format: 'int32',
+                    format: 'float',
                     minimum: 300
                 }
             }
@@ -222,9 +224,9 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
-                    format: 'int32',
+                    format: 'float',
                     maximum: 24
                 }
             }
@@ -245,9 +247,9 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
-                    format: 'int32',
+                    format: 'float',
                     maximum: 300
                 }
             }
@@ -268,9 +270,9 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
-                    format: 'int32',
+                    format: 'float',
                     exclusiveMinimum: 300
                 }
             }
@@ -291,9 +293,9 @@ module.exports.validationTests = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
-                    format: 'int32',
+                    format: 'float',
                     exclusiveMaximum: 300
                 }
             }
@@ -308,15 +310,15 @@ module.exports.validationTests = {
     },
     validIntegerMinimumExclusiveTest: function(test) {
         var data = {
-            id: 301
+            id: 300.000001
         };
         var model = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
-                    format: 'int32',
+                    format: 'double',
                     exclusiveMinimum: 300
                 }
             }
@@ -331,15 +333,15 @@ module.exports.validationTests = {
     },
     validIntegerMaximumExclusiveTest: function(test) {
         var data = {
-            id: 299
+            id: 299.999
         };
         var model = {
             required: [ 'id' ],
             properties: {
                 id: {
-                    type: 'integer',
+                    type: 'number',
                     description: 'The object id',
-                    format: 'int32',
+                    format: 'double',
                     exclusiveMaximum: 300
                 }
             }
