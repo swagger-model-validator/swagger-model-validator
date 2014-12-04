@@ -131,7 +131,6 @@ module.exports.validationTests = {
 
         test.done();
     },
-
     validateDateTime: function(test) {
         var data = {
             "salutation": "Mr Death",
@@ -152,6 +151,270 @@ module.exports.validationTests = {
         test.ok(!errors.valid);
         test.ok(errors.errorCount === 1);
         test.ok(errors.errors[0].message === 'dateOfBirth (2014-01-01T12:00:00) is not a type of date', errors.errors[0].message);
+
+        test.done();
+    },
+    validateDateTimeGreaterThanMinimum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-02"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    minimum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validateDateTimeEqualToMinimum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-01"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    minimum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validateDateTimeLessThanMinimum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-01"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    minimum: "2014-01-02"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validateDateTimeGreaterThanMaximum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-02"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    maximum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validateDateTimeEqualToMaximum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-01"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    maximum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validateDateTimeLessThanMaximim: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-01"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    maximum: "2014-01-02"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validateDateTimeGreaterThanExclusiveMinimum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-02"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    exclusiveMinimum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validateDateTimeEqualToExclusiveMinimum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-01"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    exclusiveMinimum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validateDateTimeLessThanExclusiveMinimum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-01"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    exclusiveMinimum: "2014-01-02"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validateDateTimeGreaterThanExclusiveMaximum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-02"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    exclusiveMaximum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validateDateTimeEqualToExclusiveMaximum: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-01"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    exclusiveMaximum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validateDateTimeLessThanExclusiveMaximim: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": "2014-01-01"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    exclusiveMaximum: "2014-01-02"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
 
         test.done();
     }
