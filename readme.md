@@ -1,6 +1,8 @@
 # Validate incoming objects against Swagger Models for Node.js
 [ ![Codeship Status for atlantishealthcare/swagger-model-validator](https://codeship.io/projects/a4ec3310-3b9b-0132-060c-1e7e00028aa9/status)](https://codeship.io/projects/42728)
 
+[![NPM](https://nodei.co/npm/swagger-model-validator.png?downloads=true)](https://nodei.co/npm-dl/swagger-model-validator/)
+
 This is a validation module for [Swagger](https://github.com/wordnik/swagger-spec) models Node.js.
 
 See the [swagger-node-express](https://github.com/wordnik/swagger-node-express/blob/master/SAMPLE.md) sample for more details about Swagger in Node.js.
