@@ -136,6 +136,16 @@ Now the validator will call this extra function for the 'id' field in the 'testM
 You can add multiple custom validators to the same field.  They will all be run.  If a validator throws an exception it
 will be ignored and validation will continue.
 
+## Handling Returned Errors
+Be careful with the results as javascript Errors cannot be turned into JSON without losing the message property.
+
+We have add two methods to help with this.
+
+GetErrorMessages() which returns an array of strings (one for each error) which contain the text of the error.message property.
+GetFormattedErrors() which returns an array of objects (one for each error) which contains all of the custom properties for each error and the text of the error.message property.
+
+Just passing the Validation Response errors array out will result in the loss of the error.message property.  Most errors would appear as empty objects.
+
 ## License
 Copyright (c) 2014 Atlantis Healthcare Limited.
 
