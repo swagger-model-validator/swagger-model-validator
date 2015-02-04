@@ -78,5 +78,20 @@ module.exports.validationTests = {
         test.ok(errors.valid);
 
         test.done();
+    },
+    emptyDataModelFailsCheckMessageArrayTest: function(test) {
+        var model = {
+            description: 'Woah'
+        };
+
+        var errors = validator.validate({}, model);
+
+        test.expect(4);
+        test.ok(!errors.valid);
+        test.ok(errors.errorCount === 1, "ErrorCount = " + errors.errorCount);
+        test.ok(errors.GetErrorMessages().length === 1, "Errors = " + errors.GetErrorMessages());
+        test.ok(errors.GetFormattedErrors().length === 1, "FormattedErrors = " + errors.GetErrorMessages());
+
+        test.done();
     }
 };
