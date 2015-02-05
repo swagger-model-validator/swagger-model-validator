@@ -139,7 +139,7 @@ will be ignored and validation will continue.
 ## Handling Returned Errors
 Be careful with the results as javascript Errors cannot be turned into JSON without losing the message property.
 
-We have add two methods to help with this.
+We have added two methods to help with this.
 
 GetErrorMessages() which returns an array of strings (one for each error) which contain the text of the error.message property.
 GetFormattedErrors() which returns an array of objects (one for each error) which contains all of the custom properties for each error and the text of the error.message property.
