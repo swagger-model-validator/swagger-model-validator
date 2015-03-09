@@ -153,5 +153,29 @@ module.exports.validationTests = {
         test.ok(!errors.valid);
 
         test.done();
+    },
+    arrayTypeIsNotArrayRequired: function(test) {
+        var data = {
+            sample: "Test;Hello;Factor"
+        };
+        var model = {
+            required: [ 'sample' ],
+            properties: {
+                sample: {
+                    type: 'array',
+                    items: {
+                        type: "string"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === "sample is not an array. An array is expected.", errors.errors[0].message);
+
+        test.done();
     }
 };
