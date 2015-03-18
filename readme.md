@@ -47,7 +47,7 @@ var validator = new Validator(swagger);
 Now you can call validateModel on swagger to validate an incoming json object.
 
 ```
-var validation = swagger.validateModel("modelName", jsonObject);
+var validation = swagger.validateModel("modelName", jsonObject, _allowBlankTarget_, _disallowExtraProperties_);
 ```
 
 This returns a validation results object
@@ -79,7 +79,7 @@ or if validation fails
 You can also call the validation directly
 
 ```
-var validation = validator.validate(object, swaggerModel, swaggerModels);
+var validation = validator.validate(object, swaggerModel, swaggerModels, allowBlankTarget, disallowExtraProperties);
 ```
 
 will return the same validation results but requires the actual swagger model and not its name.  _The swaggerModels
@@ -95,6 +95,16 @@ var validation = swagger.validateModel("modelName", target, true);
 
 This will allow an empty object `{ }` to be validated without errors. We consider a blank object to be worthless in most
 cases and so should normally fail, but there is always the chance that it might not be worthless so we've added the bypass.
+
+### Preventing extra properties
+From 1.2 an optional parameter can be passed into the validation request to control if extra properties should be disallowed.
+If this flag is true then the target object cannot contain any properties that are not defined on the model.
+If it is blank or false then the target object __can__ include extra properties (this is the default behaviour and the same
+as pre 1.2)
+
+```
+var validation = swagger.validateModel("modelName", target, true, true);
+```
 
 ##Custom Field Validators
 You can add a custom field validator for a model to the validator from version 1.0.3 onwards.  This allows you to add a
