@@ -106,7 +106,7 @@ as pre 1.2)
 var validation = swagger.validateModel("modelName", target, true, true);
 ```
 
-##Custom Field Validators
+## Custom Field Validators
 You can add a custom field validator for a model to the validator from version 1.0.3 onwards.  This allows you to add a
 function that will be called for any specific field that you need validated with extra rules.
 
