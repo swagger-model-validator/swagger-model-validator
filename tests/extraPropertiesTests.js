@@ -44,8 +44,9 @@ module.exports.validatorTests = {
 
         var errors = validator.validate(data, model, null, false, true);
 
-        test.expect(1);
+        test.expect(2);
         test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === "Target property 'count' is not in the model", errors.errors[0].message);
 
         test.done();
     }
