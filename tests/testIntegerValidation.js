@@ -214,6 +214,52 @@ module.exports.validationTests = {
 
         test.done();
     },
+    validIntegerMinimumIsZeroTest: function(test) {
+        var data = {
+            id: 1
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    minimum: 0
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    invalidIntegerMinimumIsZeroTest: function(test) {
+        var data = {
+            id: -1
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    minimum: 0
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
     validIntegerMaxiumumExceededTest: function(test) {
         var data = {
             id: 300
@@ -249,6 +295,52 @@ module.exports.validationTests = {
                     description: 'The object id',
                     format: 'int32',
                     maximum: 300
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    invalidIntegerMaxiumumIsZeroTest: function(test) {
+        var data = {
+            id: 300
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    maximum: 0
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validIntegerMaxiumumIsZeroTest: function(test) {
+        var data = {
+            id: -5
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    maximum: 0
                 }
             }
         };
