@@ -101,6 +101,56 @@ module.exports.refTests = {
         test.ok(errors.valid);
         test.done();
     },
+    hasRefWithinArray: function(test) {
+        var data = {
+            sample: true,
+            location: [{
+                right: 1,
+                bottom: 1
+            }]
+        };
+
+        var models = {
+            dataModel: {
+                required: [ "sample" ],
+                properties: {
+                    sample: {
+                        type: "boolean"
+                    },
+                    location: {
+                        type: "array",
+                        items: {
+                            $ref: "#/definitions/Location"
+                        }
+                    }
+                }
+            },
+            Location: {
+                required: [ "top", "left" ],
+                properties: {
+                    top: {
+                        type: "integer"
+                    },
+                    left: {
+                        type: "integer"
+                    },
+                    right: {
+                        type: "integer"
+                    },
+                    bottom: {
+                        type: "integer"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, models["dataModel"], models);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errorCount === 2, "Errors: " + errors.errors);
+        test.done();
+    },
     hasRefWithMissingDataTest: function(test) {
         var data = {
             sample: true,
