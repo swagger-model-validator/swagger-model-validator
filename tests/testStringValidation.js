@@ -27,6 +27,28 @@ module.exports.validationTests = {
 
         test.done();
     },
+    // https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md#dataTypeFormat
+    stringAllowArbitraryFormat: function(test) {
+        var data = {
+            id: 'valid string here'
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'string',
+                    format: 'this-can-be-anything',
+                    description: 'The object id'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.ok(errors.valid);
+
+        test.done();
+    },
     stringBlankTest: function(test) {
         var data = {
             id: ""
