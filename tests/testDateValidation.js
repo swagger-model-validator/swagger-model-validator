@@ -43,7 +43,7 @@ module.exports.validationTests = {
         var errors = validator.validate(data, model);
 
         test.expect(1);
-        test.ok(!errors.valid);
+        test.ok(!errors.valid, JSON.stringify(errors));
 
         test.done();
     },
