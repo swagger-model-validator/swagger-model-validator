@@ -17,6 +17,9 @@ A Swagger Model contains the definitions of the incoming (or outgoing) object pr
 
 This package provides a module to do just that.
 
+## Swagger versions
+This project should work against both Swagger 1.2 and Swagger 2.0.  Please create a pull request if you have any fixes for Swagger 2.0 support but please remember to retain support for Swagger 1.2 as well.
+
 ### Validation Notes
 It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
 As long as the value can be parsed by parseInt in javascript it will be accepted as an int64.
