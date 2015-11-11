@@ -27,6 +27,27 @@ module.exports.validationTests = {
 
         test.done();
     },
+    allowArbitraryFormat: function(test) {
+        var data = {
+            id: 'valid string here'
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'string',
+                    format: 'this-can-be-anything',
+                    description: 'The object id'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+        test.done();
+    },
     stringBlankTest: function(test) {
         var data = {
             id: ""
