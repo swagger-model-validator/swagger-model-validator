@@ -117,6 +117,9 @@ module.exports.validationTests = {
         test.done();
     },
     validInteger32TypeFailedTest: function(test) {
+        // Please note that while int32 integers cannot exceed the max value for an int32
+        // the same is not true (in swagger) of int32 numbers because int32 is not a known number format
+        // but all formats pass if they are are not known.
         var data = {
             id: 3000000000
         };
@@ -134,11 +137,11 @@ module.exports.validationTests = {
         var errors = validator.validate(data, model);
 
         test.expect(1);
-        test.ok(!errors.valid);
+        test.ok(errors.valid);
 
         test.done();
     },
-    validInteger64TypeTest: function(test) {
+    validFloatTypeTest: function(test) {
         var data = {
             id: 3000000000
         };
