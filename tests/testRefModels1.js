@@ -60,6 +60,59 @@ module.exports.refTests = {
         test.ok(errors.valid);
         test.done();
     },
+    hasObjectWithNoPropertiesRefTest: function(test) {
+        var data = {
+            biotype: {
+               'protein_coding': 'miRNA'
+            },
+            location: {
+                top: 1,
+                left: 1,
+                right: 5,
+                bottom: 5
+            }
+        };
+
+        var models = {
+            dataModel: {
+                required: [ "biotype" ],
+                properties: {
+                    biotype: {
+                        $ref: "biotype"
+                    },
+                    location: {
+                        $ref: "Location"
+                    }
+                }
+            },
+            biotype: {
+                type: "object"
+            },
+            Location: {
+                required: [ "top", "left" ],
+                properties: {
+                    top: {
+                        type: "integer"
+                    },
+                    left: {
+                        type: "integer"
+                    },
+                    right: {
+                        type: "integer"
+                    },
+                    bottom: {
+                        type: "integer"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, models["dataModel"], models);
+
+        test.expect(1);
+        test.ok(errors.valid);
+        test.done();
+    },
     hasStringInvalidRefTest: function(test) {
         var data = {
             biotype: 'FOOBAHR',
