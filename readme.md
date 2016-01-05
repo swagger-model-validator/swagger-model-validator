@@ -1,5 +1,6 @@
 # Validate incoming objects against Swagger Models for Node.js
-[ ![Codeship Status for atlantishealthcare/swagger-model-validator](https://codeship.com/projects/a4ec3310-3b9b-0132-060c-1e7e00028aa9/status?branch=master)](https://codeship.com/projects/42728)
+[ ![Codeship Status for atlantishealthcare/swagger-model-validator](https://codeship.com/projects/a4ec3310-3b9b-0132-060c-1e7e00028aa9/status?branch=master)](https://codeship.com/projects/42728) 
+[ ![npm version](https://badge.fury.io/js/swagger-model-validator.svg)](https://badge.fury.io/js/swagger-model-validator)
 
 [![NPM](https://nodei.co/npm/swagger-model-validator.png?downloads=true)](https://nodei.co/npm-dl/swagger-model-validator/)
 
