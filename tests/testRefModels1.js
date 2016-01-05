@@ -1,5 +1,5 @@
 /**
- * Created by bdunn on 10/11/2014.
+ * Created by mycrobe on 1/1/2016.
  */
 var Validator = require('../lib/modelValidator');
 var validator = new Validator();
