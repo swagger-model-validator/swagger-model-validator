@@ -93,6 +93,65 @@ module.exports.validatorTests = {
         test.ok(result.errorCount === 1);
         test.done();
     },
+    testCustomValidationAddedToModelRun: function(test) {
+        test.expect(2);
+
+        var model = {
+            properties: {
+                id: {
+                    type: "integer"
+                }
+            }
+        };
+
+        var data = {
+            id: 34
+        };
+
+        validator = new Validator();
+        validator.addFieldValidatorToModel(model, "id", function(name, value) {
+            if(value === 34) {
+                return new Error("Value Cannot be 34");
+            }
+
+            return null;
+        });
+        var result = validator.validate(data, model);
+
+        test.ok(!result.valid);
+        test.ok(result.errorCount === 1);
+        test.done();
+    },
+    testCustomValidationAddedToModelWithIdRun: function(test) {
+        test.expect(2);
+
+        var model = {
+            id: "testModel",
+            properties: {
+                id: {
+                    type: "integer"
+                }
+            }
+        };
+
+        var data = {
+            id: 34
+        };
+
+        validator = new Validator();
+        validator.addFieldValidatorToModel(model, "id", function(name, value) {
+            if(value === 34) {
+                return new Error("Value Cannot be 34");
+            }
+
+            return null;
+        });
+        var result = validator.validate(data, model);
+
+        test.ok(!result.valid);
+        test.ok(result.errorCount === 1);
+        test.done();
+    },
     testCustomValidationReturnsArrayRun: function(test) {
         test.expect(2);
 

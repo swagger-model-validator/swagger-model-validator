@@ -1,6 +1,6 @@
 {
     "name": "swagger-model-validator",
-    "version": "2.0.3",
+    "version": "2.0.6",
     "description": "Validate incoming objects against Swagger Models.",
     "keywords": [ "Swagger", "Validation" ],
     "licence": "MIT",
