@@ -150,6 +150,26 @@ Now the validator will call this extra function for the 'id' field in the 'testM
 You can add multiple custom validators to the same field.  They will all be run.  If a validator throws an exception it
 will be ignored and validation will continue.
 
+### Custom Field Validators for Swagger 2.0 Onwards
+Because the id property has been dropped from the model it is much harder to link models together in the validator.
+
+You can now add field validators as a custom property on each model by using the addFieldValidatorToModel function.
+
+```
+validator.addFieldValidatorToModel(model, "id", function(name, value) {
+    var errors = []
+    if(value === 34) {
+        errors.push(new Error("Value Cannot be 34"));
+    }
+
+    if(value < 40) {
+        errors.push(new Error("Value must be at least 40"));
+    }
+
+    return errors.length > 0 ? errors : null;
+});
+```
+
 ## Handling Returned Errors
 Be careful with the results as javascript Errors cannot be turned into JSON without losing the message property.
 
