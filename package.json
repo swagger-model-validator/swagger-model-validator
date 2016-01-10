@@ -2,18 +2,21 @@
     "name": "swagger-model-validator",
     "version": "2.0.6",
     "description": "Validate incoming objects against Swagger Models.",
-    "keywords": [ "Swagger", "Validation" ],
+    "keywords": [
+      "Swagger",
+      "Validation"
+    ],
     "licence": "MIT",
     "author": "Brody Dunn",
     "bugs": {
-        "url": "https://github.com/atlantishealthcare/swagger-model-validator/issues"
+      "url": "https://github.com/atlantishealthcare/swagger-model-validator/issues"
     },
     "homepage": "https://github.com/atlantishealthcare/swagger-model-validator",
     "repository": {
-        "type": "git",
-        "url": "https://github.com/atlantishealthcare/swagger-model-validator.git"
+      "type": "git",
+      "url": "https://github.com/atlantishealthcare/swagger-model-validator.git"
     },
     "scripts": {
-        "test": "nodeunit tests"
+      "test": "nodeunit tests"
     }
 }
