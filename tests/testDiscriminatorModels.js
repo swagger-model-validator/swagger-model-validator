@@ -30,7 +30,7 @@ module.exports.refTests = {
                     location: {
                         $ref: "#/definitions/Location"
                     }
-                },
+                }
             },
             Location: {
                 required: [ "top", "left" ],

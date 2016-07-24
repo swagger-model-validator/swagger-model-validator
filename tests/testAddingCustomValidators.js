@@ -16,7 +16,7 @@ module.exports.validatorTests = {
         }
         test.done();
     },
-    addFunctionAsModelNameError: function(test) {
+    addFunctionAsModelNameNotAStringError: function(test) {
         test.expect(1);
         try {
             validator.addFieldValidator(function(){});

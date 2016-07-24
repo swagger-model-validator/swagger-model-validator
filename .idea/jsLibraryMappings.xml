@@ -4,6 +4,5 @@
     <file url="file://$PROJECT_DIR$" libraries="{swagger-model-validator1 node_modules}" />
     <includedPredefinedLibrary name="Node.js Core" />
     <excludedPredefinedLibrary name="HTML" />
-    <excludedPredefinedLibrary name="HTML5 / EcmaScript 5" />
   </component>
 </project>
