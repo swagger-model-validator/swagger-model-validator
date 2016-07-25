@@ -291,5 +291,16 @@ module.exports.validatorTests = {
         test.ok(result.valid);
         test.ok(result.errorCount === 0);
         test.done();
+    },
+    testAnonymousValidator: function(test) {
+        test.expect(1);
+        try {
+          Validator();
+          test.ok(true, "Validator initialized");
+        } catch(e) {
+          test.ok(false, "Validator should initialize without throwing error.");
+        }
+
+        test.done();
     }
 };
