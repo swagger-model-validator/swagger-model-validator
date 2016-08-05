@@ -294,5 +294,132 @@ module.exports.refTests = {
         test.expect(1);
         test.ok(!errors.valid);
         test.done();
+    },
+    hasRefWithExcapedDefinitionPrefixTest: function(test) {
+        var data = {
+            "amountRange":{"fromAmount":10,"toAmount":100}
+        };
+
+        var models = {
+                MyType: {
+                    type: "object",
+                    properties: {
+                        amountRange: {
+                            $ref: "#\/definitions\/AmountRange"
+                        }
+                    }
+                },
+            AmountRange: {
+                type: "object",
+                required: [
+                    "ccyCode",
+                    "fromAmount",
+                    "toAmount"
+                ],
+                properties: {
+                    fromAmount: {
+                        type: "number"
+                    },
+                    toAmount: {
+                        type: "number"
+                    },
+                    ccyCode: {
+                        type: "string",
+                        pattern: "[A-Z]{3}"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, models["MyType"], models);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+        test.done();
+    },
+    hasRefWithExcapedDefinitionPrefixTest2: function(test) {
+        var data = {
+            "amountRange":{"fromAmount":10,"toAmount":100, "ccyCode": "ffg"}
+        };
+
+        var models = {
+            "MyType": {
+                "type": "object",
+                "properties": {
+                    "amountRange": {
+                        "$ref": "#\/definitions\/AmountRange"
+                    }
+                }
+            },
+            "AmountRange": {
+                "type": "object",
+                "required": [
+                    "ccyCode",
+                    "fromAmount",
+                    "toAmount"
+                ],
+                "properties": {
+                    "fromAmount": {
+                        "type": "number"
+                    },
+                    "toAmount": {
+                        "type": "number"
+                    },
+                    "ccyCode": {
+                        "type": "string",
+                        "pattern": "[A-Z]{3}"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, models["MyType"], models);
+
+        test.expect(1);
+        test.ok(errors.valid);
+        test.done();
+    },
+    hasRefWithExcapedDefinitionPrefixTest3: function(test) {
+        var data = {
+            "amountRange":{"fromAmount":10,"toAmount":100}
+        };
+
+        var models = {
+            "MyType": {
+                "type": "object",
+                "properties": {
+                    "amountRange": {
+                        "$ref": "#\/definitions\/AmountRange"
+                    }
+                }
+            },
+            "AmountRange": {
+                "type": "object",
+                "required": [
+                    "ccyCode",
+                    "fromAmount",
+                    "toAmount"
+                ],
+                "properties": {
+                    "fromAmount": {
+                        "type": "number"
+                    },
+                    "toAmount": {
+                        "type": "number"
+                    },
+                    "ccyCode": {
+                        "type": "string",
+                        "pattern": "[A-Z]{3}"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, models["MyType"], models);
+
+        test.expect(2);
+        test.ok(errors.errors[0].message == 'ccyCode is a required field');
+        test.ok(!errors.valid);
+        test.done();
     }
 };
