@@ -6,7 +6,7 @@
 
 This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) for Node.js.
 
-See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express/blob/master/SAMPLE.md) sample for more details about Swagger in Node.js.
+See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express) sample for more details about Swagger in Node.js.
 
 ## What's Swagger?
 The goal of Swagger™ is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, Swager removes the guesswork in calling the service.
