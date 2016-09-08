@@ -1,6 +1,6 @@
 {
     "name": "swagger-model-validator",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "description": "Validate incoming objects against Swagger Models.",
     "keywords": [
       "Swagger",
@@ -18,5 +18,8 @@
     },
     "scripts": {
       "test": "nodeunit tests"
-    }
+    },
+    "devDependencies": {
+      "nodeunit": "^0.10.2"
+  }
 }
