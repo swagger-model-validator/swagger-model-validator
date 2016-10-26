@@ -110,6 +110,13 @@ as pre 1.2)
 var validation = swagger.validateModel("modelName", target, true, true);
 ```
 
+### Added support for x-nullable required properties
+From 2.1.4 you can add a custom specification to allow a required object to be null.
+This is different from not being present in the body of the request or response.
+
+Simple add the property ```'x-nullable': true``` to your definition of a required property to allow the value of null to pass validation.
+This has no effect on any property that is not required.
+
 ## Custom Field Validators
 You can add a custom field validator for a model to the validator from version 1.0.3 onwards.  This allows you to add a
 function that will be called for any specific field that you need validated with extra rules.

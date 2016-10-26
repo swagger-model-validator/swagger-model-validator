@@ -50,6 +50,32 @@ module.exports.validatorTests = {
 
         test.done();
     },
+    disallowExtraPropertiesWithN0oExtraProperties: function (test) {
+        var data = {
+            id: 1,
+            count: 4
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'number',
+                    description: 'The object id'
+                },
+                count: {
+                    type: 'number',
+                    description: 'A number'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model, null, false, true);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
     disallowNestedExtraProperties: function (test) {
         var person = {
             id: 1,
