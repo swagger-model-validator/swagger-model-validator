@@ -77,5 +77,8 @@
       "deletions": 22,
       "hireable": true
     }
-  ]
+  ],
+  "dependencies": {
+    "deepmerge": "^1.2.0"
+  }
 }
