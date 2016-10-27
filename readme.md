@@ -35,6 +35,8 @@ As from version 0.3 it will now validate models referenced by the $ref keyword b
 by the swagger function validateModel or if the native validate is called with a model array passed in.
 
 As from version 1.0.0 it will now validate arrays in models.  It will validate arrays of a type and arrays of a $ref.
+
+As from version 2.1.5 it will validate models using the ```allOf``` keyword.
 ### Installation
 Install swagger-model-validator
 

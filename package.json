@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -24,6 +24,24 @@
   },
   "contributors": [
     {
+      "name": null,
+      "email": null,
+      "url": "https://github.com/ssreedharan",
+      "contributions": 1,
+      "additions": 1,
+      "deletions": 1,
+      "hireable": null
+    },
+    {
+      "name": "Mitchell Burton",
+      "email": null,
+      "url": "https://github.com/MitchellBurton",
+      "contributions": 3,
+      "additions": 199,
+      "deletions": 22,
+      "hireable": true
+    },
+    {
       "name": "Brian Hou",
       "email": null,
       "url": "https://github.com/brhou",
@@ -42,39 +60,30 @@
       "hireable": null
     },
     {
+      "name": "Brody Dunn",
+      "email": null,
+      "url": "https://github.com/brodyd",
+      "contributions": 77,
+      "additions": 4633,
+      "deletions": 400,
+      "hireable": null
+    },
+    {
+      "name": "Hugo Durães",
+      "email": null,
+      "url": "https://github.com/hugoduraes",
+      "contributions": 2,
+      "additions": 373,
+      "deletions": 107,
+      "hireable": true
+    },
+    {
       "name": "Gareth Coleman",
       "email": "info@l0l.org.uk",
       "url": "https://github.com/layerzerolabs",
       "contributions": 2,
       "additions": 5,
       "deletions": 6,
-      "hireable": true
-    },
-    {
-      "name": "Brody Dunn",
-      "email": null,
-      "url": "https://github.com/brodyd",
-      "contributions": 72,
-      "additions": 4351,
-      "deletions": 366,
-      "hireable": null
-    },
-    {
-      "name": null,
-      "email": null,
-      "url": "https://github.com/ssreedharan",
-      "contributions": 1,
-      "additions": 1,
-      "deletions": 1,
-      "hireable": null
-    },
-    {
-      "name": "Mitchell Burton",
-      "email": null,
-      "url": "https://github.com/MitchellBurton",
-      "contributions": 3,
-      "additions": 199,
-      "deletions": 22,
       "hireable": true
     }
   ]
