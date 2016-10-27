@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -24,12 +24,12 @@
   },
   "contributors": [
     {
-      "name": "Brian Hou",
+      "name": "Brody Dunn",
       "email": null,
-      "url": "https://github.com/brhou",
-      "contributions": 3,
-      "additions": 61,
-      "deletions": 6,
+      "url": "https://github.com/brodyd",
+      "contributions": 80,
+      "additions": 5248,
+      "deletions": 474,
       "hireable": null
     },
     {
@@ -42,13 +42,13 @@
       "hireable": true
     },
     {
-      "name": null,
-      "email": null,
-      "url": "https://github.com/ssreedharan",
-      "contributions": 1,
-      "additions": 1,
-      "deletions": 1,
-      "hireable": null
+      "name": "Gareth Coleman",
+      "email": "info@l0l.org.uk",
+      "url": "https://github.com/layerzerolabs",
+      "contributions": 2,
+      "additions": 5,
+      "deletions": 6,
+      "hireable": true
     },
     {
       "name": "Joe Mulvaney",
@@ -60,31 +60,31 @@
       "hireable": null
     },
     {
-      "name": "Brody Dunn",
+      "name": null,
       "email": null,
-      "url": "https://github.com/brodyd",
-      "contributions": 79,
-      "additions": 5213,
-      "deletions": 439,
+      "url": "https://github.com/ssreedharan",
+      "contributions": 1,
+      "additions": 1,
+      "deletions": 1,
       "hireable": null
-    },
-    {
-      "name": "Gareth Coleman",
-      "email": "info@l0l.org.uk",
-      "url": "https://github.com/layerzerolabs",
-      "contributions": 2,
-      "additions": 5,
-      "deletions": 6,
-      "hireable": true
     },
     {
       "name": "Hugo Durães",
       "email": null,
       "url": "https://github.com/hugoduraes",
-      "contributions": 3,
-      "additions": 381,
-      "deletions": 108,
+      "contributions": 4,
+      "additions": 383,
+      "deletions": 110,
       "hireable": true
+    },
+    {
+      "name": "Brian Hou",
+      "email": null,
+      "url": "https://github.com/brhou",
+      "contributions": 3,
+      "additions": 61,
+      "deletions": 6,
+      "hireable": null
     }
   ]
 }
