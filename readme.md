@@ -9,6 +9,8 @@ This is a validation module for [Swagger](https://github.com/swagger-api/swagger
 
 See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express) sample for more details about Swagger in Node.js.
 
+This is now tested against the latest stable versions of 0.10, 0.12, 4, 5, 6 and 7 using [Travis](https://travis-ci.org/atlantishealthcare/swagger-model-validator).
+
 ## What's Swagger?
 The goal of Swagger™ is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, Swager removes the guesswork in calling the service.
 
