@@ -1,0 +1,9 @@
+language: javascript
+nvm:
+  - "0.10.x"
+  - "0.12.x"
+  - "4"
+  - "5"
+  - "6"
+  - "node"
+  - "iojs"
