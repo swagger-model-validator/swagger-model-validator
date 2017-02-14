@@ -16,7 +16,7 @@ module.exports.validatorTests = {
         }
         test.done();
     },
-    addFunctionAsModelNameError: function(test) {
+    addFunctionAsModelNameNotAStringError: function(test) {
         test.expect(1);
         try {
             validator.addFieldValidator(function(){});
@@ -81,6 +81,65 @@ module.exports.validatorTests = {
 
         validator = new Validator();
         validator.addFieldValidator("testModel", "id", function(name, value) {
+            if(value === 34) {
+                return new Error("Value Cannot be 34");
+            }
+
+            return null;
+        });
+        var result = validator.validate(data, model);
+
+        test.ok(!result.valid);
+        test.ok(result.errorCount === 1);
+        test.done();
+    },
+    testCustomValidationAddedToModelRun: function(test) {
+        test.expect(2);
+
+        var model = {
+            properties: {
+                id: {
+                    type: "integer"
+                }
+            }
+        };
+
+        var data = {
+            id: 34
+        };
+
+        validator = new Validator();
+        validator.addFieldValidatorToModel(model, "id", function(name, value) {
+            if(value === 34) {
+                return new Error("Value Cannot be 34");
+            }
+
+            return null;
+        });
+        var result = validator.validate(data, model);
+
+        test.ok(!result.valid);
+        test.ok(result.errorCount === 1);
+        test.done();
+    },
+    testCustomValidationAddedToModelWithIdRun: function(test) {
+        test.expect(2);
+
+        var model = {
+            id: "testModel",
+            properties: {
+                id: {
+                    type: "integer"
+                }
+            }
+        };
+
+        var data = {
+            id: 34
+        };
+
+        validator = new Validator();
+        validator.addFieldValidatorToModel(model, "id", function(name, value) {
             if(value === 34) {
                 return new Error("Value Cannot be 34");
             }
@@ -231,6 +290,17 @@ module.exports.validatorTests = {
 
         test.ok(result.valid);
         test.ok(result.errorCount === 0);
+        test.done();
+    },
+    testAnonymousValidator: function(test) {
+        test.expect(1);
+        try {
+          Validator();
+          test.ok(true, "Validator initialized");
+        } catch(e) {
+          test.ok(false, "Validator should initialize without throwing error.");
+        }
+
         test.done();
     }
 };

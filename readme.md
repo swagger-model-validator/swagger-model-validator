@@ -1,11 +1,15 @@
 # Validate incoming objects against Swagger Models for Node.js
-[ ![Codeship Status for atlantishealthcare/swagger-model-validator](https://codeship.io/projects/a4ec3310-3b9b-0132-060c-1e7e00028aa9/status)](https://codeship.io/projects/42728)
+[ ![Codeship Status for atlantishealthcare/swagger-model-validator](https://codeship.com/projects/a4ec3310-3b9b-0132-060c-1e7e00028aa9/status?branch=master)](https://codeship.com/projects/42728) 
+[ ![npm version](https://badge.fury.io/js/swagger-model-validator.svg)](https://badge.fury.io/js/swagger-model-validator)
+[![Build Status](https://travis-ci.org/atlantishealthcare/swagger-model-validator.svg?branch=master)](https://travis-ci.org/atlantishealthcare/swagger-model-validator)
 
 [![NPM](https://nodei.co/npm/swagger-model-validator.png?downloads=true)](https://nodei.co/npm-dl/swagger-model-validator/)
 
-This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models Node.js.
+This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) for Node.js.
 
-See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express/blob/master/SAMPLE.md) sample for more details about Swagger in Node.js.
+See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express) sample for more details about Swagger in Node.js.
+
+This is now tested against the latest stable versions of 0.10, 0.12, 4, 5, 6 and 7 using [Travis](https://travis-ci.org/atlantishealthcare/swagger-model-validator).
 
 ## What's Swagger?
 The goal of Swagger™ is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, Swager removes the guesswork in calling the service.
@@ -16,6 +20,9 @@ Check out [Swagger-Spec](https://github.com/swagger-api/swagger-spec) for additi
 A Swagger Model contains the definitions of the incoming (or outgoing) object properties.  Validating an incoming object matches the Swagger Model Definition is a valuable check that the correct data has been provided.
 
 This package provides a module to do just that.
+
+## Swagger versions
+This project should work against both Swagger 1.2 and Swagger 2.0.  Please create a pull request if you have any fixes for Swagger 2.0 support but please remember to retain support for Swagger 1.2 as well.
 
 ### Validation Notes
 It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
@@ -31,6 +38,8 @@ As from version 0.3 it will now validate models referenced by the $ref keyword b
 by the swagger function validateModel or if the native validate is called with a model array passed in.
 
 As from version 1.0.0 it will now validate arrays in models.  It will validate arrays of a type and arrays of a $ref.
+
+As from version 2.1.5 it will validate models using the ```allOf``` keyword.
 ### Installation
 Install swagger-model-validator
 
@@ -106,6 +115,13 @@ as pre 1.2)
 var validation = swagger.validateModel("modelName", target, true, true);
 ```
 
+### Added support for x-nullable required properties
+From 2.1.4 you can add a custom specification to allow a required object to be null.
+This is different from not being present in the body of the request or response.
+
+Simple add the property ```'x-nullable': true``` to your definition of a required property to allow the value of null to pass validation.
+This has no effect on any property that is not required.
+
 ## Custom Field Validators
 You can add a custom field validator for a model to the validator from version 1.0.3 onwards.  This allows you to add a
 function that will be called for any specific field that you need validated with extra rules.
@@ -145,6 +161,26 @@ Now the validator will call this extra function for the 'id' field in the 'testM
 
 You can add multiple custom validators to the same field.  They will all be run.  If a validator throws an exception it
 will be ignored and validation will continue.
+
+### Custom Field Validators for Swagger 2.0 Onwards
+Because the id property has been dropped from the model it is much harder to link models together in the validator.
+
+You can now add field validators as a custom property on each model by using the addFieldValidatorToModel function.
+
+```
+validator.addFieldValidatorToModel(model, "id", function(name, value) {
+    var errors = []
+    if(value === 34) {
+        errors.push(new Error("Value Cannot be 34"));
+    }
+
+    if(value < 40) {
+        errors.push(new Error("Value must be at least 40"));
+    }
+
+    return errors.length > 0 ? errors : null;
+});
+```
 
 ## Handling Returned Errors
 Be careful with the results as javascript Errors cannot be turned into JSON without losing the message property.

@@ -1,19 +1,90 @@
 {
-    "name": "swagger-model-validator",
-    "version": "1.2.2",
-    "description": "Validate incoming objects against Swagger Models.",
-    "keywords": [ "Swagger", "Validation" ],
-    "licence": "MIT",
-    "author": "Brody Dunn",
-    "bugs": {
-        "url": "https://github.com/atlantishealthcare/swagger-model-validator/issues"
+  "name": "swagger-model-validator",
+  "version": "2.1.9",
+  "description": "Validate incoming objects against Swagger Models.",
+  "keywords": [
+    "Swagger",
+    "Validation"
+  ],
+  "licence": "MIT",
+  "author": "Brody Dunn",
+  "bugs": {
+    "url": "https://github.com/atlantishealthcare/swagger-model-validator/issues"
+  },
+  "homepage": "https://github.com/atlantishealthcare/swagger-model-validator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atlantishealthcare/swagger-model-validator.git"
+  },
+  "scripts": {
+    "test": "nodeunit tests"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.10.2"
+  },
+  "contributors": [
+    {
+      "name": "Brody Dunn",
+      "email": null,
+      "url": "https://github.com/brodyd",
+      "contributions": 80,
+      "additions": 5248,
+      "deletions": 474,
+      "hireable": null
     },
-    "homepage": "https://github.com/atlantishealthcare/swagger-model-validator",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/atlantishealthcare/swagger-model-validator.git"
+    {
+      "name": "Mitchell Burton",
+      "email": null,
+      "url": "https://github.com/MitchellBurton",
+      "contributions": 3,
+      "additions": 199,
+      "deletions": 22,
+      "hireable": true
     },
-    "scripts": {
-        "test": "nodeunit tests"
+    {
+      "name": "Gareth Coleman",
+      "email": "info@l0l.org.uk",
+      "url": "https://github.com/layerzerolabs",
+      "contributions": 2,
+      "additions": 5,
+      "deletions": 6,
+      "hireable": true
+    },
+    {
+      "name": "Joe Mulvaney",
+      "email": "me@mycro.be",
+      "url": "https://github.com/mycrobe",
+      "contributions": 2,
+      "additions": 283,
+      "deletions": 50,
+      "hireable": null
+    },
+    {
+      "name": null,
+      "email": null,
+      "url": "https://github.com/ssreedharan",
+      "contributions": 1,
+      "additions": 1,
+      "deletions": 1,
+      "hireable": null
+    },
+    {
+      "name": "Hugo Durães",
+      "email": null,
+      "url": "https://github.com/hugoduraes",
+      "contributions": 4,
+      "additions": 383,
+      "deletions": 110,
+      "hireable": true
+    },
+    {
+      "name": "Brian Hou",
+      "email": null,
+      "url": "https://github.com/brhou",
+      "contributions": 3,
+      "additions": 61,
+      "deletions": 6,
+      "hireable": null
     }
+  ]
 }

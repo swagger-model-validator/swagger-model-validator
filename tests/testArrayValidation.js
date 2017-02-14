@@ -95,6 +95,29 @@ module.exports.validationTests = {
 
         test.done();
     },
+    emptyArrayValidates: function(test) {
+        var data = {
+            sample: [ ]
+        };
+        var model = {
+            required: [],
+            properties: {
+                sample: {
+                    type: 'array',
+                    items: {
+                        type: "string"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
     arrayValidationFails: function(test) {
         var data = {
             sample: [ 1, "2", "tribble" ]
