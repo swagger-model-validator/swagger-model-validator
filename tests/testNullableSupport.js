@@ -137,5 +137,32 @@ module.exports.validatorTests = {
         test.ok(!errors.valid);
 
         test.done();
+    },
+    Issue81DefinitionTest: function(test) {
+        var data = {
+            name: 'zzz',
+            some: null
+        };
+
+        var model = {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                },
+                "some": {
+                    "$ref": "#/definitions/Something"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+        test.done();
     }
 };
