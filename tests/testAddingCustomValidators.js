@@ -5,6 +5,7 @@
 var Validator = require('../lib/modelValidator');
 var validator = new Validator();
 
+//noinspection JSUnusedGlobalSymbols
 module.exports.validatorTests = {
     addBlankError: function(test) {
         test.expect(1);

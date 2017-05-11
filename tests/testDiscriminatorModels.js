@@ -4,6 +4,7 @@
 var Validator = require('../lib/modelValidator');
 var validator = new Validator();
 
+//noinspection JSUnusedGlobalSymbols
 module.exports.refTests = {
     hasRefWithDefinitionPrefixTest: function(test) {
         var data = {
@@ -55,6 +56,7 @@ module.exports.refTests = {
             allModels: models
         };
 
+        //noinspection JSUnusedLocalSymbols
         var testValidator = new Validator(swagger);
 
         var errors = swagger.validateModel("firstModel", data);
@@ -109,13 +111,7 @@ module.exports.refTests = {
             }
         };
 
-        var swagger = {
-            allModels: models
-        };
-
-        var testValidator = new Validator(swagger);
-
-        var errors =validator.validate(data, models["firstModel"], models, false, true);
+        var errors = validator.validate(data, models["firstModel"], models, false, true);
 
         test.expect(1);
         test.ok(errors.valid);
@@ -166,20 +162,14 @@ module.exports.refTests = {
             }
         };
 
-        var swagger = {
-            allModels: models
-        };
-
-        var testValidator = new Validator(swagger);
-
-        var errors =validator.validate(data, models["firstModel"], models, false, true);
+        var errors = validator.validate(data, models["firstModel"], models, false, true);
 
         test.expect(3);
         test.ok(!errors.valid, "1 error expected");
 
         if(!errors.valid) {
-            test.ok(errors.errorCount == 1, errors.errorCount);
-            test.ok(errors.errors[0].message == "top is a required field", errors.errors[0].message);
+            test.ok(errors.errorCount === 1, errors.errorCount);
+            test.ok(errors.errors[0].message === "top is a required field", errors.errors[0].message);
         } else {
             test.ok(true);
             test.ok(true);
@@ -193,30 +183,6 @@ module.exports.refTests = {
                 "type": "A",
                 "existsInBothObjects": "Hello World",
                 "onlyExistsInA": "This is valid"
-            }
-        };
-
-        var data2 = {
-            "AorB": {
-                "type": "B",
-                "existsInBothObjects": "Hello World",
-                "onlyExistsInB": "This is valid"
-            }
-        };
-
-        var badData3 = {
-            "AorB": {
-                "type": "A",
-                "existsInBothObjects": "Hello World",
-                "onlyExistsInB": "This property is not allowed on type A"
-            }
-        };
-
-        var badData4 = {
-            "AorB": {
-                "type": "A",
-                "existsInBothObjects": "Hello World",
-                "onlyExistsInB": "This property is not allowed on type A"
             }
         };
 
@@ -322,12 +288,6 @@ module.exports.refTests = {
 
         var models = swaggerDefinition.definitions;
 
-        var swagger = {
-            allModels: models
-        };
-
-        var testValidator = new Validator(swagger);
-
         var errors = validator.validate(data1, models["ParentObject"], models, false, true);
 
         test.expect(1);
@@ -336,35 +296,11 @@ module.exports.refTests = {
         test.done();
     },
     hasRefWithDefinitionPrefixUsingValidateWithExtendedSample2Test: function(test) {
-    var data1 = {
-        "AorB": {
-            "type": "A",
-            "existsInBothObjects": "Hello World",
-            "onlyExistsInA": "This is valid"
-        }
-    };
-
     var data2 = {
         "AorB": {
             "type": "B",
             "existsInBothObjects": "Hello World",
             "onlyExistsInB": "This is valid"
-        }
-    };
-
-    var badData3 = {
-        "AorB": {
-            "type": "A",
-            "existsInBothObjects": "Hello World",
-            "onlyExistsInB": "This property is not allowed on type A"
-        }
-    };
-
-    var badData4 = {
-        "AorB": {
-            "type": "A",
-            "existsInBothObjects": "Hello World",
-            "onlyExistsInB": "This property is not allowed on type A"
         }
     };
 
@@ -469,12 +405,6 @@ module.exports.refTests = {
     };
 
     var models = swaggerDefinition.definitions;
-
-    var swagger = {
-        allModels: models
-    };
-
-    var testValidator = new Validator(swagger);
 
     var errors = validator.validate(data2, models["ParentObject"], models, false, true);
 
@@ -594,18 +524,12 @@ module.exports.refTests = {
 
         var models = swaggerDefinition.definitions;
 
-        var swagger = {
-            allModels: models
-        };
-
-        var testValidator = new Validator(swagger);
-
         var errors = validator.validate(badData3, models["ParentObject"], models, false, true);
 
         test.expect(3);
         test.ok(!errors.valid, "no expected error occurred");
-        test.ok(errors.errors[0].message == "Target property 'onlyExistsInB' is not in the model");
-        test.ok(errors.errorCount == 1)
+        test.ok(errors.errors[0].message === "Target property 'onlyExistsInB' is not in the model");
+        test.ok(errors.errorCount === 1);
 
         test.done();
     },
@@ -720,18 +644,12 @@ module.exports.refTests = {
 
         var models = swaggerDefinition.definitions;
 
-        var swagger = {
-            allModels: models
-        };
-
-        var testValidator = new Validator(swagger);
-
         var errors = validator.validate(badData4, models["ParentObject"], models, false, true);
 
         test.expect(3);
         test.ok(!errors.valid, "No expected error occurred");
-        test.ok(errors.errors[0].message == "Target property 'onlyExistsInB' is not in the model");
-        test.ok(errors.errorCount == 1)
+        test.ok(errors.errors[0].message === "Target property 'onlyExistsInB' is not in the model");
+        test.ok(errors.errorCount === 1);
 
         test.done();
     }

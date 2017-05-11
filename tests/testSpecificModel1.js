@@ -1,6 +1,6 @@
 var Validator = require('../lib/modelValidator');
-var validator = new Validator();
 
+//noinspection JSUnusedGlobalSymbols
 module.exports.userIssue2 = {
     testSampleOk: function(test) {
         var model = {
@@ -50,6 +50,7 @@ module.exports.userIssue2 = {
             }
         };
 
+        //noinspection JSUnusedLocalSymbols
         var testValidator = new Validator(swagger);
 
         var result = swagger.validateModel("TestModel", data);
@@ -105,6 +106,7 @@ module.exports.userIssue2 = {
             }
         };
 
+        //noinspection JSUnusedLocalSymbols
         var testValidator = new Validator(swagger);
 
         var result = swagger.validateModel("TestModel", data);
@@ -162,6 +164,7 @@ module.exports.userIssue2 = {
             }
         };
 
+        //noinspection JSUnusedLocalSymbols
         var testValidator = new Validator(swagger);
 
         var result = swagger.validateModel("TestModel", data);

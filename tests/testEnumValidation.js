@@ -4,6 +4,7 @@
 var Validator = require('../lib/modelValidator');
 var validator = new Validator();
 
+//noinspection JSUnusedGlobalSymbols
 module.exports.validationTests = {
     validateEnum: function(test) {
         var data = {

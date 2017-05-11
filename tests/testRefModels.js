@@ -4,6 +4,7 @@
 var Validator = require('../lib/modelValidator');
 var validator = new Validator();
 
+//noinspection JSUnusedGlobalSymbols
 module.exports.refTests = {
     hasRefTest: function(test) {
         var data = {
@@ -418,7 +419,7 @@ module.exports.refTests = {
         var errors = validator.validate(data, models["MyType"], models);
 
         test.expect(2);
-        test.ok(errors.errors[0].message == 'ccyCode is a required field');
+        test.ok(errors.errors[0].message === 'ccyCode is a required field');
         test.ok(!errors.valid);
         test.done();
     }
