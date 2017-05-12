@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "2.1.10",
+  "version": "2.2.0",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -24,17 +24,56 @@
   },
   "contributors": [
     {
+      "name": "Andrew Kandels",
+      "url": "https://github.com/akandels",
+      "contributions": 1,
+      "additions": 2,
+      "deletions": 2
+    },
+    {
       "name": "Hugo Durães",
-      "email": null,
       "url": "https://github.com/hugoduraes",
       "contributions": 4,
       "additions": 383,
-      "deletions": 110,
-      "hireable": true
+      "deletions": 110
+    },
+    {
+      "name": "Brody Dunn",
+      "url": "https://github.com/brodyd",
+      "contributions": 93,
+      "additions": 6158,
+      "deletions": 587
+    },
+    {
+      "name": "Vu Nguyen",
+      "url": "https://github.com/vudknguyen",
+      "contributions": 1,
+      "additions": 2,
+      "deletions": 2
+    },
+    {
+      "name": "Brian Hou",
+      "url": "https://github.com/brhou",
+      "contributions": 3,
+      "additions": 61,
+      "deletions": 6
+    },
+    {
+      "name": "Sreeram Sreedharan",
+      "url": "https://github.com/ssreedharan",
+      "contributions": 1,
+      "additions": 1,
+      "deletions": 1
+    },
+    {
+      "name": "Joe Mulvaney",
+      "url": "https://github.com/mycrobe",
+      "contributions": 2,
+      "additions": 283,
+      "deletions": 50
     },
     {
       "name": "Gareth Coleman",
-      "email": "info@l0l.org.uk",
       "url": "https://github.com/layerzerolabs",
       "contributions": 2,
       "additions": 5,
@@ -42,67 +81,12 @@
       "hireable": true
     },
     {
-      "name": "Brody Dunn",
-      "email": null,
-      "url": "https://github.com/brodyd",
-      "contributions": 90,
-      "additions": 6063,
-      "deletions": 543,
-      "hireable": null
-    },
-    {
-      "name": "Vu Nguyen",
-      "email": null,
-      "url": "https://github.com/vudknguyen",
-      "contributions": 1,
-      "additions": 2,
-      "deletions": 2,
-      "hireable": null
-    },
-    {
-      "name": "Sreeram Sreedharan",
-      "email": null,
-      "url": "https://github.com/ssreedharan",
-      "contributions": 1,
-      "additions": 1,
-      "deletions": 1,
-      "hireable": null
-    },
-    {
-      "name": "Brian Hou",
-      "email": null,
-      "url": "https://github.com/brhou",
-      "contributions": 3,
-      "additions": 61,
-      "deletions": 6,
-      "hireable": null
-    },
-    {
       "name": "Mitchell Burton",
-      "email": null,
       "url": "https://github.com/MitchellBurton",
       "contributions": 3,
       "additions": 199,
       "deletions": 22,
       "hireable": true
-    },
-    {
-      "name": "Andrew Kandels",
-      "email": "akandels@gmail.com",
-      "url": "https://github.com/akandels",
-      "contributions": 1,
-      "additions": 2,
-      "deletions": 2,
-      "hireable": null
-    },
-    {
-      "name": "Joe Mulvaney",
-      "email": "me@mycro.be",
-      "url": "https://github.com/mycrobe",
-      "contributions": 2,
-      "additions": 283,
-      "deletions": 50,
-      "hireable": null
     }
   ]
 }
