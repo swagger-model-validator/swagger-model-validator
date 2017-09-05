@@ -313,7 +313,7 @@ module.exports.validationTests = {
     },
     validIntegerMinimumExclusiveTest: function(test) {
         var data = {
-            id: 300.000001
+            id: 0.00000000001
         };
         var model = {
             required: [ 'id' ],
@@ -322,7 +322,7 @@ module.exports.validationTests = {
                     type: 'number',
                     description: 'The object id',
                     format: 'double',
-                    exclusiveMinimum: 300
+                    exclusiveMinimum: 0
                 }
             }
         };
