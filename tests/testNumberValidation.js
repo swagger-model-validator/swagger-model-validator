@@ -311,9 +311,9 @@ module.exports.validationTests = {
 
         test.done();
     },
-    validIntegerMinimumExclusiveTest: function(test) {
+    validDoubleMinimumExclusiveTest: function(test) {
         var data = {
-            id: 300.000001
+            id: 0.00000000001
         };
         var model = {
             required: [ 'id' ],
@@ -322,7 +322,7 @@ module.exports.validationTests = {
                     type: 'number',
                     description: 'The object id',
                     format: 'double',
-                    exclusiveMinimum: 300
+                    exclusiveMinimum: 0
                 }
             }
         };
@@ -331,6 +331,54 @@ module.exports.validationTests = {
 
         test.expect(1);
         test.ok(errors.valid);
+
+        test.done();
+    },
+    validDoubleMinimumExclusiveTestOldSchema: function(test) {
+        var data = {
+            id: 0.00000000001
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'number',
+                    description: 'The object id',
+                    format: 'double',
+                    minimum: 0,
+                    exclusiveMinimum: true
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    invalidDoubleMinimumExclusiveTestOldSchema: function(test) {
+        var data = {
+            id: 0
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'number',
+                    description: 'The object id',
+                    format: 'double',
+                    minimum: 0,
+                    exclusiveMinimum: true
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
 
         test.done();
     },
@@ -354,6 +402,54 @@ module.exports.validationTests = {
 
         test.expect(1);
         test.ok(errors.valid);
+
+        test.done();
+    },
+    validDoubleMaximumExclusiveTestOldSchema: function(test) {
+        var data = {
+            id: -0.00000000001
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'number',
+                    description: 'The object id',
+                    format: 'double',
+                    maximum: 0,
+                    exclusiveMaximum: true
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    invalidDoubleMaximumExclusiveTestOldSchema: function(test) {
+        var data = {
+            id: 0
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'number',
+                    description: 'The object id',
+                    format: 'double',
+                    maximum: 0,
+                    exclusiveMaximum: true
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
 
         test.done();
     }

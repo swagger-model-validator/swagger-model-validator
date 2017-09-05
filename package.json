@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "2.1.10",
+  "version": "2.2.0",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -33,24 +33,6 @@
       "hireable": true
     },
     {
-      "name": "Gareth Coleman",
-      "email": "info@l0l.org.uk",
-      "url": "https://github.com/layerzerolabs",
-      "contributions": 2,
-      "additions": 5,
-      "deletions": 6,
-      "hireable": true
-    },
-    {
-      "name": "Brody Dunn",
-      "email": null,
-      "url": "https://github.com/brodyd",
-      "contributions": 90,
-      "additions": 6063,
-      "deletions": 543,
-      "hireable": null
-    },
-    {
       "name": "Vu Nguyen",
       "email": null,
       "url": "https://github.com/vudknguyen",
@@ -75,6 +57,24 @@
       "contributions": 3,
       "additions": 61,
       "deletions": 6,
+      "hireable": null
+    },
+    {
+      "name": "Gareth Coleman",
+      "email": "info@l0l.org.uk",
+      "url": "https://github.com/layerzerolabs",
+      "contributions": 2,
+      "additions": 5,
+      "deletions": 6,
+      "hireable": true
+    },
+    {
+      "name": "Brody Dunn",
+      "email": null,
+      "url": "https://github.com/brodyd",
+      "contributions": 90,
+      "additions": 6063,
+      "deletions": 543,
       "hireable": null
     },
     {
