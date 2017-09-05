@@ -9,7 +9,7 @@ This is a validation module for [Swagger](https://github.com/swagger-api/swagger
 
 See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express) sample for more details about Swagger in Node.js.
 
-This is now tested against the latest stable versions of 0.10, 0.12, 4, 5, 6 and 7 using [Travis](https://travis-ci.org/atlantishealthcare/swagger-model-validator).
+This is tested against the NodeJS 0.10, 0.12 and the latest stable versions of IOJS and NodeJS 4, 5, 6, 7 and 8 using [Travis](https://travis-ci.org/atlantishealthcare/swagger-model-validator).
 
 ## What's Swagger?
 The goal of Swagger™ is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, Swager removes the guesswork in calling the service.
@@ -22,9 +22,16 @@ A Swagger Model contains the definitions of the incoming (or outgoing) object pr
 This package provides a module to do just that.
 
 ## Swagger versions
-This project should work against both Swagger 1.2 and Swagger 2.0.  Please create a pull request if you have any fixes for Swagger 2.0 support but please remember to retain support for Swagger 1.2 as well.
+This project should work against both Swagger 1.2, Swagger 2.0 and parts of OpenApi 3.0.  Please create a pull request if you have any fixes for Swagger 2.0 or OpenAPI 3.0 support but please remember to retain support for Swagger 1.2 as well.
 
-### Validation Notes
+### Swagger 1.2
+This package was original developed against the Swagger 1.2 specification.
+### Swagger 2.0 / OpenAPi 2.0
+This packages has had some activity to align it with the 2.0 specification but it has not been completely done.  We've handled it on an 'as required' basis.  We welcome any pull requests for 2.0 support.
+### OpenAPI 3.0
+This package has had very little done to it to support OpenAPI 3.0.  We welcome any pull requires with 3.0 support but would like to request that you retain support for 1.2 and 2.0 if possible.
+
+## Validation Notes
 It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
 As long as the value can be parsed by parseInt in javascript it will be accepted as an int64.
 
