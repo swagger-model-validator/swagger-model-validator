@@ -443,5 +443,29 @@ module.exports.validationTests = {
         test.ok(errors.valid);
 
         test.done();
+    },
+    validIntegerMaximumExclusiveTest: function(test) {
+        var data = {
+            id: 100
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    exclusiveMinimum: -100,
+                    exclusiveMaximum: 300
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
     }
 };
