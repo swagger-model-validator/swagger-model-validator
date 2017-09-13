@@ -417,5 +417,30 @@ module.exports.validationTests = {
         test.ok(errors.valid);
 
         test.done();
+    },
+    validateDateTimeLessThanExclusiveMaximim2: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": new Date(2013, 10, 4)
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    exclusiveMaximum: "2014-01-02"
+                }
+            }
+        };
+
+        var json = JSON.stringify(data);
+        var target = JSON.parse(json);
+
+        var errors = validator.validate(target, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
     }
 };
