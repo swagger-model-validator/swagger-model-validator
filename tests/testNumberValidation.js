@@ -28,6 +28,28 @@ module.exports.validationTests = {
 
         test.done();
     },
+    numberAsStringTypeTest: function(test) {
+        var data = {
+            id: '123'
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'number',
+                    description: 'The object id'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === 'id (123) is not a type of number', 'message: ' + errors.errors[0].message);
+
+        test.done();
+    },
     invalidNumberBlankTest: function(test) {
         var data = {
             id: ""
