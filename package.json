@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -24,13 +24,13 @@
   },
   "contributors": [
     {
-      "name": "Hugo Durães",
+      "name": "Joe Mulvaney",
       "email": null,
-      "url": "https://github.com/hugoduraes",
-      "contributions": 4,
-      "additions": 383,
-      "deletions": 110,
-      "hireable": true
+      "url": "https://github.com/mycrobe",
+      "contributions": 2,
+      "additions": 283,
+      "deletions": 50,
+      "hireable": null
     },
     {
       "name": "Vu Nguyen",
@@ -42,12 +42,21 @@
       "hireable": null
     },
     {
-      "name": "Sreeram Sreedharan",
+      "name": "Hugo Durães",
       "email": null,
-      "url": "https://github.com/ssreedharan",
+      "url": "https://github.com/hugoduraes",
+      "contributions": 4,
+      "additions": 383,
+      "deletions": 110,
+      "hireable": true
+    },
+    {
+      "name": "Andrew Kandels",
+      "email": null,
+      "url": "https://github.com/akandels",
       "contributions": 1,
-      "additions": 1,
-      "deletions": 1,
+      "additions": 2,
+      "deletions": 2,
       "hireable": null
     },
     {
@@ -61,7 +70,7 @@
     },
     {
       "name": "Gareth Coleman",
-      "email": "info@l0l.org.uk",
+      "email": null,
       "url": "https://github.com/layerzerolabs",
       "contributions": 2,
       "additions": 5,
@@ -72,9 +81,9 @@
       "name": "Brody Dunn",
       "email": null,
       "url": "https://github.com/brodyd",
-      "contributions": 90,
-      "additions": 6063,
-      "deletions": 543,
+      "contributions": 101,
+      "additions": 6482,
+      "deletions": 684,
       "hireable": null
     },
     {
@@ -87,21 +96,21 @@
       "hireable": true
     },
     {
-      "name": "Andrew Kandels",
-      "email": "akandels@gmail.com",
-      "url": "https://github.com/akandels",
+      "name": "Abhilash Chelankara",
+      "email": null,
+      "url": "https://github.com/abhiche",
       "contributions": 1,
-      "additions": 2,
+      "additions": 48,
       "deletions": 2,
       "hireable": null
     },
     {
-      "name": "Joe Mulvaney",
-      "email": "me@mycro.be",
-      "url": "https://github.com/mycrobe",
-      "contributions": 2,
-      "additions": 283,
-      "deletions": 50,
+      "name": "Sreeram Sreedharan",
+      "email": null,
+      "url": "https://github.com/ssreedharan",
+      "contributions": 1,
+      "additions": 1,
+      "deletions": 1,
       "hireable": null
     }
   ]
