@@ -190,6 +190,49 @@ module.exports.validationTests = {
         test.ok(result !== 4.63333333, result);
         test.done();
     },
+    invalidIntegerDecimalValueTest: function(test) {
+        var data = {
+            id: 100.52
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === 'id (100.52) is not a type of integer', 'message: ' + errors.errors[0].message);
+
+        test.done();
+    },
+    validIntegerDecimalValueTest: function(test) {
+        var data = {
+            id: 100.00
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
     validIntegerMinimumExceededTest: function(test) {
         var data = {
             id: 300
