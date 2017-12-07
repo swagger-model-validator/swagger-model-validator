@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "2.2.2",
+  "version": "2.2.6",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -16,6 +16,12 @@
     "type": "git",
     "url": "https://github.com/atlantishealthcare/swagger-model-validator.git"
   },
+  "files": [
+    "index.js",
+    "contributors.md",
+    "lib",
+    "tests"
+  ],
   "scripts": {
     "test": "nodeunit tests"
   },
