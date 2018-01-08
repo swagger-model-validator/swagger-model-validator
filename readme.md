@@ -32,7 +32,7 @@ We have some changes to support Swagger 2.0 but not of Swagger 2.0 is supported.
 Version 2.2.0 has changes that implement the `exclusiveMinimum` and `exclusiveMaximum` validations as per the Swagger 2.0 specification which is different from 1.1 and 3.0 due to changes in the underlying JSON Schema definitions.
 `exclusiveMinimum` and `exclusiveMaximum` can be booleans (Swagger 2.0) which modify the behaviour of the `minimum` and 'maximum' validations; or they can be integers (Swagger 1.1 and OpenAPI 3.0) which set specific exclusive minimums and maximums.
 ### OpenAPI 3.0
-We have no specific support of OpenApi 3.0 yet.
+We have added the RegEx Pattern support to field definitions.  Thanks @julianpellasrice
 
 ## Validation Notes
 It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
