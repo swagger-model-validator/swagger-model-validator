@@ -9,10 +9,10 @@ This is a validation module for [Swagger](https://github.com/swagger-api/swagger
 
 See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express) sample for more details about Swagger in Node.js.
 
-This is tested against the NodeJS 0.10, 0.12 and the latest stable versions of IOJS and NodeJS 4, 5, 6, 7 and 8 using [Travis](https://travis-ci.org/atlantishealthcare/swagger-model-validator).
+This is tested against the NodeJS 0.10, 0.12 and the latest stable versions of IOJS and NodeJS 4, 5, 6, 7, 8, 9 and 10 using [Travis](https://travis-ci.org/atlantishealthcare/swagger-model-validator).
 
 ## What's Swagger?
-The goal of Swagger™ is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, Swager removes the guesswork in calling the service.
+The goal of Swagger™ (now OpenApi) is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, Swagger removes the guesswork in calling the service.
 
 Check out [Swagger-Spec](https://github.com/swagger-api/swagger-spec) for additional information about the Swagger project, including additional libraries with support for other languages and more. 
 
@@ -28,8 +28,12 @@ This project should work against both Swagger 1.2, Swagger 2.0 and parts of Open
 This package was original developed against the Swagger 1.2 specification.
 ### Swagger 2.0 / OpenAPi 2.0
 This package has had some activity to align it with the 2.0 specification but it has not been completely done.  We've handled it on an 'as required' basis.  We welcome any pull requests for 2.0 support.
+Version 2.2.0 has changes that implement the `exclusiveMinimum` and `exclusiveMaximum` validations as per the Swagger 2.0 specification which is different from 1.1 and 3.0 due to changes in the underlying JSON Schema definitions.
+`exclusiveMinimum` and `exclusiveMaximum` can be booleans (Swagger 2.0) which modify the behaviour of the `minimum` and 'maximum' validations; or they can be integers (Swagger 1.1 and OpenAPI 3.0) which set specific exclusive minimums and maximums.
 ### OpenAPI 3.0
-This package has had some activity to align it with the Open API 3.0 specification but it has not been completely done. very little done to it to support OpenAPI 3.0.  We welcome any pull requires with 3.0 support but would like to request that you retain support for 1.2 and 2.0 if possible.
+This package has had some activity to align it with the Open API 3.0 specification but it has not been completely done. We welcome any pull requires with 3.0 support but would like to request that you retain support for 1.2 and 2.0 if possible.
+
+RegEx Pattern support was added (Thanks @julianpellasrice)
 
 ## Validation Notes
 It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
@@ -47,7 +51,7 @@ by the swagger function validateModel or if the native validate is called with a
 As from version 1.0.0 it will now validate arrays in models.  It will validate arrays of a type and arrays of a $ref.
 
 As from version 2.1.5 it will validate models using the ```allOf``` keyword.
-### Installation
+## Installation
 Install swagger-model-validator
 
 ```
@@ -101,7 +105,7 @@ var validation = validator.validate(object, swaggerModel, swaggerModels, allowBl
 will return the same validation results but requires the actual swagger model and not its name.  _The swaggerModels
 parameter is required if you want models referenced by the $ref keyword to be validated as well._
 
-### Allowing blank targets to validate
+## Allowing blank targets to validate
 From 1.0.2 any empty objects passed in as targets will fail validation.  You can bypass this by adding a `true` value to
 the method at the end.
 
@@ -112,7 +116,7 @@ var validation = swagger.validateModel("modelName", target, true);
 This will allow an empty object `{ }` to be validated without errors. We consider a blank object to be worthless in most
 cases and so should normally fail, but there is always the chance that it might not be worthless so we've added the bypass.
 
-### Preventing extra properties
+## Preventing extra properties
 From 1.2 an optional parameter can be passed into the validation request to control if extra properties should be disallowed.
 If this flag is true then the target object cannot contain any properties that are not defined on the model.
 If it is blank or false then the target object __can__ include extra properties (this is the default behaviour and the same
@@ -122,7 +126,7 @@ as pre 1.2)
 var validation = swagger.validateModel("modelName", target, true, true);
 ```
 
-### Added support for x-nullable required properties
+## Added support for x-nullable required properties
 From 2.1.4 you can add a custom specification to allow a required object to be null.
 This is different from not being present in the body of the request or response.
 

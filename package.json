@@ -16,6 +16,12 @@
     "type": "git",
     "url": "https://github.com/atlantishealthcare/swagger-model-validator.git"
   },
+  "files": [
+    "index.js",
+    "contributors.md",
+    "lib",
+    "tests"
+  ],
   "scripts": {
     "test": "nodeunit tests"
   },
@@ -24,13 +30,40 @@
   },
   "contributors": [
     {
-      "name": "Vu Nguyen",
+      "name": "Abhilash Chelankara",
       "email": null,
-      "url": "https://github.com/vudknguyen",
-      "contributions": 1,
-      "additions": 2,
-      "deletions": 2,
+      "url": "https://github.com/abhiche",
+      "contributions": 2,
+      "additions": 50,
+      "deletions": 4,
       "hireable": null
+    },
+    {
+      "name": null,
+      "email": null,
+      "url": "https://github.com/julianpellasrice",
+      "contributions": 2,
+      "additions": 155,
+      "deletions": 4,
+      "hireable": null
+    },
+    {
+      "name": "Rory O'Connor",
+      "email": null,
+      "url": "https://github.com/roryoconnor",
+      "contributions": 2,
+      "additions": 137,
+      "deletions": 0,
+      "hireable": null
+    },
+    {
+      "name": "Hugo Durães",
+      "email": null,
+      "url": "https://github.com/hugoduraes",
+      "contributions": 4,
+      "additions": 383,
+      "deletions": 110,
+      "hireable": true
     },
     {
       "name": "Andrew Kandels",
@@ -96,12 +129,39 @@
       "hireable": null
     },
     {
+      "name": "Gareth Coleman",
+      "email": null,
+      "url": "https://github.com/layerzerolabs",
+      "contributions": 2,
+      "additions": 5,
+      "deletions": 6,
+      "hireable": true
+    },
+    {
+      "name": "Brian Hou",
+      "email": null,
+      "url": "https://github.com/brhou",
+      "contributions": 3,
+      "additions": 61,
+      "deletions": 6,
+      "hireable": null
+    },
+    {
+      "name": "Joe Mulvaney",
+      "email": null,
+      "url": "https://github.com/mycrobe",
+      "contributions": 2,
+      "additions": 283,
+      "deletions": 50,
+      "hireable": null
+    },
+    {
       "name": "Brody Dunn",
       "email": null,
       "url": "https://github.com/brodyd",
-      "contributions": 99,
-      "additions": 6429,
-      "deletions": 680,
+      "contributions": 105,
+      "additions": 6614,
+      "deletions": 784,
       "hireable": null
     }
   ]

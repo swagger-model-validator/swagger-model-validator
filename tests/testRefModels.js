@@ -340,7 +340,7 @@ module.exports.refTests = {
     },
     hasRefWithExcapedDefinitionPrefixTest2: function(test) {
         var data = {
-            "amountRange":{"fromAmount":10,"toAmount":100, "ccyCode": "ffg"}
+            "amountRange":{"fromAmount":10,"toAmount":100, "ccyCode": "FFG"}
         };
 
         var models = {

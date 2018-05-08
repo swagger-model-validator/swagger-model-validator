@@ -28,6 +28,28 @@ module.exports.validationTests = {
 
         test.done();
     },
+    integerAsStringTypeTest: function(test) {
+        var data = {
+            id: '123'
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === 'id (123) is not a type of integer', 'message: ' + errors.errors[0].message);
+
+        test.done();
+    },
     invalidIntegerBlankTest: function(test) {
         var data = {
             id: ""
@@ -167,6 +189,139 @@ module.exports.validationTests = {
 
         test.expect(1);
         test.ok(result !== 4.63333333, result);
+        test.done();
+    },
+    invalidIntegerDecimalValueTest: function(test) {
+        var data = {
+            id: 100.52
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === 'id (100.52) is not a type of integer', 'message: ' + errors.errors[0].message);
+
+        test.done();
+    },
+    invalidInteger32DecimalValueTest: function(test) {
+        var data = {
+            id: 100.52
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === 'id (100.52) is not a type of int32', 'message: ' + errors.errors[0].message);
+
+        test.done();
+    },
+    invalidInteger64DecimalValueTest: function(test) {
+        var data = {
+            id: 100.52
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int64'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === 'id (100.52) is not a type of int64', 'message: ' + errors.errors[0].message);
+
+        test.done();
+    },
+    validIntegerDecimalValueTest: function(test) {
+        var data = {
+            id: 100.00
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validInteger32DecimalValueTest: function(test) {
+        var data = {
+            id: 100.00
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validInteger32DecimalValueTest: function(test) {
+        var data = {
+            id: 100.00
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int64'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
         test.done();
     },
     validIntegerMinimumExceededTest: function(test) {
@@ -433,6 +588,30 @@ module.exports.validationTests = {
                     type: 'integer',
                     description: 'The object id',
                     format: 'int32',
+                    exclusiveMaximum: 300
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validIntegerMaximumExclusiveTest: function(test) {
+        var data = {
+            id: 100
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'integer',
+                    description: 'The object id',
+                    format: 'int32',
+                    exclusiveMinimum: -100,
                     exclusiveMaximum: 300
                 }
             }
