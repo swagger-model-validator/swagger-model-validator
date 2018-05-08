@@ -5,7 +5,7 @@
 
 [![NPM](https://nodei.co/npm/swagger-model-validator.png?downloads=true)](https://nodei.co/npm-dl/swagger-model-validator/)
 
-This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) for Node.js.
+This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) and for [Open API](https://https://swagger.io/specification/) models (version 3.0) for Node.js.
 
 See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express) sample for more details about Swagger in Node.js.
 
@@ -27,9 +27,9 @@ This project should work against both Swagger 1.2, Swagger 2.0 and parts of Open
 ### Swagger 1.2
 This package was original developed against the Swagger 1.2 specification.
 ### Swagger 2.0 / OpenAPi 2.0
-This packages has had some activity to align it with the 2.0 specification but it has not been completely done.  We've handled it on an 'as required' basis.  We welcome any pull requests for 2.0 support.
+This package has had some activity to align it with the 2.0 specification but it has not been completely done.  We've handled it on an 'as required' basis.  We welcome any pull requests for 2.0 support.
 ### OpenAPI 3.0
-This package has had very little done to it to support OpenAPI 3.0.  We welcome any pull requires with 3.0 support but would like to request that you retain support for 1.2 and 2.0 if possible.
+This package has had some activity to align it with the Open API 3.0 specification but it has not been completely done. very little done to it to support OpenAPI 3.0.  We welcome any pull requires with 3.0 support but would like to request that you retain support for 1.2 and 2.0 if possible.
 
 ## Validation Notes
 It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
