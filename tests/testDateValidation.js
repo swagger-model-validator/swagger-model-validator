@@ -4,11 +4,33 @@
 var Validator = require('../lib/modelValidator');
 var validator = new Validator();
 
+//noinspection JSUnusedGlobalSymbols
 module.exports.validationTests = {
     validateDate: function(test) {
         var data = {
             travis: 'test',
             dob: '2014-02-01'
+        };
+        var model = {
+            properties: {
+                dob: {
+                    type: 'string',
+                    format: 'date'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    validateDateAsDate: function(test) {
+        var data = {
+            travis: 'test',
+            dob: new Date('2014-02-01')
         };
         var model = {
             properties: {
@@ -176,6 +198,28 @@ module.exports.validationTests = {
 
         test.done();
     },
+    validateDateTimeGreaterThanMinimumWhenDate: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": new Date("2014-01-02")
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    minimum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
     validateDateTimeEqualToMinimum: function(test) {
         var data = {
             "salutation": "Mr Death",
@@ -198,10 +242,54 @@ module.exports.validationTests = {
 
         test.done();
     },
+    validateDateTimeEqualToMinimumWhenDate: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": new Date("2014-01-01")
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    minimum: "2014-01-01"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
     validateDateTimeLessThanMinimum: function(test) {
         var data = {
             "salutation": "Mr Death",
             "dateOfBirth": "2014-01-01"
+        };
+        var model = {
+            properties: {
+                dateOfBirth: {
+                    type: "string",
+                    format: 'date-time',
+                    minimum: "2014-01-02"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    validateDateTimeLessThanMinimumWhenDate: function(test) {
+        var data = {
+            "salutation": "Mr Death",
+            "dateOfBirth": new Date("2014-01-01")
         };
         var model = {
             properties: {

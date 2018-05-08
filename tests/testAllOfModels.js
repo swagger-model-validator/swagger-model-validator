@@ -4,6 +4,7 @@
 var Validator = require('../lib/modelValidator');
 var validator = new Validator();
 
+//noinspection JSUnusedGlobalSymbols
 module.exports.refTests = {
     hasAllOfTest: function(test) {
         var data = {
@@ -188,7 +189,7 @@ module.exports.refTests = {
                         $ref: '#/definitions/Location2'
                     },
                     {
-                        required: [ "top" ],
+                        required: [ "top" ]
                     },
                     {
                         properties: {
@@ -254,7 +255,7 @@ module.exports.refTests = {
                         $ref: '#/definitions/Location2'
                     },
                     {
-                        required: [ "top" ],
+                        required: [ "top" ]
                     },
                     {
                         properties: {

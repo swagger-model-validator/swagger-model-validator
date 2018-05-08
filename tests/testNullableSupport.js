@@ -4,6 +4,7 @@
 var Validator = require('../lib/modelValidator');
 var validator = new Validator();
 
+//noinspection JSUnusedGlobalSymbols
 module.exports.validatorTests = {
     allowNullableRequiredPropertiesToBeNull: function(test) {
         var data = {
@@ -34,7 +35,7 @@ module.exports.validatorTests = {
     },
     doNotAllowNullableRequiredPropertiesToBeMissing: function(test) {
         var data = {
-            id: 1,
+            id: 1
         };
         var model = {
             required: [ 'id', 'count' ],
@@ -151,7 +152,7 @@ module.exports.validatorTests = {
             ],
             "properties": {
                 "name": {
-                    "type": "string",
+                    "type": "string"
                 },
                 "some": {
                     "$ref": "#/definitions/Something"

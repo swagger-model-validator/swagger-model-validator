@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "2.2.8",
+  "version": "3.0.0",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -66,21 +66,21 @@
       "hireable": true
     },
     {
-      "name": null,
+      "name": "Andrew Kandels",
       "email": null,
-      "url": "https://github.com/ssreedharan",
-      "contributions": 1,
-      "additions": 1,
-      "deletions": 1,
-      "hireable": null
-    },
-    {
-      "name": "Vu Nguyen",
-      "email": null,
-      "url": "https://github.com/vudknguyen",
+      "url": "https://github.com/akandels",
       "contributions": 1,
       "additions": 2,
       "deletions": 2,
+      "hireable": null
+    },
+    {
+      "name": "Joe Mulvaney",
+      "email": null,
+      "url": "https://github.com/mycrobe",
+      "contributions": 2,
+      "additions": 283,
+      "deletions": 50,
       "hireable": null
     },
     {
@@ -93,12 +93,39 @@
       "hireable": true
     },
     {
-      "name": "Andrew Kandels",
+      "name": "Hugo Durães",
       "email": null,
-      "url": "https://github.com/akandels",
+      "url": "https://github.com/hugoduraes",
+      "contributions": 4,
+      "additions": 383,
+      "deletions": 110,
+      "hireable": true
+    },
+    {
+      "name": "Gareth Coleman",
+      "email": null,
+      "url": "https://github.com/layerzerolabs",
+      "contributions": 2,
+      "additions": 5,
+      "deletions": 6,
+      "hireable": true
+    },
+    {
+      "name": "Brian Hou",
+      "email": null,
+      "url": "https://github.com/brhou",
+      "contributions": 3,
+      "additions": 61,
+      "deletions": 6,
+      "hireable": null
+    },
+    {
+      "name": "Sreeram Sreedharan",
+      "email": null,
+      "url": "https://github.com/ssreedharan",
       "contributions": 1,
-      "additions": 2,
-      "deletions": 2,
+      "additions": 1,
+      "deletions": 1,
       "hireable": null
     },
     {
