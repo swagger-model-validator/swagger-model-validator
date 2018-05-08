@@ -5,6 +5,7 @@
 var Validator = require('../lib/modelValidator');
 var validator = new Validator();
 
+//noinspection JSUnusedGlobalSymbols
 module.exports.validatorTests = {
     addBlankError: function(test) {
         test.expect(1);
@@ -56,11 +57,18 @@ module.exports.validatorTests = {
         }
         test.done();
     },
-    addFunctionAsModelNameError: function(test) {
+    addFunctionAsModelName: function(test) {
         test.expect(1);
 
         validator.addFieldValidator("test", "field", function(){});
         test.ok(validator.getFieldValidators("test", "field"));
+        test.done();
+    },
+    addFunctionAsModelName2: function(test) {
+        test.expect(1);
+
+        validator.addFieldValidator("test", "field", function(){});
+        test.ok(validator.getCustomValidator().getFieldValidators("test", "field"));
         test.done();
     },
     testCustomValidationRun: function(test) {

@@ -5,11 +5,11 @@
 
 [![NPM](https://nodei.co/npm/swagger-model-validator.png?downloads=true)](https://nodei.co/npm-dl/swagger-model-validator/)
 
-This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) for Node.js.
+This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) and for [Open API](https://https://swagger.io/specification/) models (version 3.0) for Node.js.
 
 See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express) sample for more details about Swagger in Node.js.
 
-This is tested against the latest stable versions of Node 0.10, 0.12, 4, 5, 6 and 7 using [Travis](https://travis-ci.org/atlantishealthcare/swagger-model-validator).
+This is tested against the NodeJS 0.10, 0.12 and the latest stable versions of IOJS and NodeJS 4, 5, 6, 7, 8, 9 and 10 using [Travis](https://travis-ci.org/atlantishealthcare/swagger-model-validator).
 
 ## What's Swagger?
 The goal of Swagger™ (now OpenApi) is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, Swagger removes the guesswork in calling the service.
@@ -22,17 +22,18 @@ A Swagger Model contains the definitions of the incoming (or outgoing) object pr
 This package provides a module to do just that.
 
 ## Swagger versions
-This project should work against both Swagger 1.2 and Swagger 2.0.  Please create a pull request if you have any fixes for Swagger 2.0 support but please remember to retain support for Swagger 1.2 as well.
+This project should work against both Swagger 1.2, Swagger 2.0 and parts of OpenApi 3.0.  Please create a pull request if you have any fixes for Swagger 2.0 or OpenAPI 3.0 support but please remember to retain support for Swagger 1.2 as well.
 
-### Swagger 1.1
-This project was created against Swagger 1.1.
-### Swagger 2.0
-We have some changes to support Swagger 2.0 but not of Swagger 2.0 is supported.
-
+### Swagger 1.2
+This package was original developed against the Swagger 1.2 specification.
+### Swagger 2.0 / OpenAPi 2.0
+This package has had some activity to align it with the 2.0 specification but it has not been completely done.  We've handled it on an 'as required' basis.  We welcome any pull requests for 2.0 support.
 Version 2.2.0 has changes that implement the `exclusiveMinimum` and `exclusiveMaximum` validations as per the Swagger 2.0 specification which is different from 1.1 and 3.0 due to changes in the underlying JSON Schema definitions.
 `exclusiveMinimum` and `exclusiveMaximum` can be booleans (Swagger 2.0) which modify the behaviour of the `minimum` and 'maximum' validations; or they can be integers (Swagger 1.1 and OpenAPI 3.0) which set specific exclusive minimums and maximums.
 ### OpenAPI 3.0
-We have added the RegEx Pattern support to field definitions.  Thanks @julianpellasrice
+This package has had some activity to align it with the Open API 3.0 specification but it has not been completely done. We welcome any pull requires with 3.0 support but would like to request that you retain support for 1.2 and 2.0 if possible.
+
+RegEx Pattern support was added (Thanks @julianpellasrice)
 
 ## Validation Notes
 It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
