@@ -6,7 +6,7 @@
     "Swagger",
     "Validation"
   ],
-  "licence": "MIT",
+  "license": "MIT",
   "author": "Brody Dunn",
   "bugs": {
     "url": "https://github.com/atlantishealthcare/swagger-model-validator/issues"
