@@ -26,7 +26,7 @@ This project should work against both Swagger 1.2, Swagger 2.0 and parts of Open
 
 ### Swagger 1.2
 This package was original developed against the Swagger 1.2 specification.
-### Swagger 2.0 / OpenAPi 2.0
+### Swagger 2.0 / OpenAPI 2.0
 This package has had some activity to align it with the 2.0 specification but it has not been completely done.  We've handled it on an 'as required' basis.  We welcome any pull requests for 2.0 support.
 Version 2.2.0 has changes that implement the `exclusiveMinimum` and `exclusiveMaximum` validations as per the Swagger 2.0 specification which is different from 1.1 and 3.0 due to changes in the underlying JSON Schema definitions.
 `exclusiveMinimum` and `exclusiveMaximum` can be booleans (Swagger 2.0) which modify the behaviour of the `minimum` and 'maximum' validations; or they can be integers (Swagger 1.1 and OpenAPI 3.0) which set specific exclusive minimums and maximums.
