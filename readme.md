@@ -133,6 +133,11 @@ This is different from not being present in the body of the request or response.
 Simple add the property ```'x-nullable': true``` to your definition of a required property to allow the value of null to pass validation.
 This has no effect on any property that is not required.
 
+## Skip validation of a single field
+From 3.0.1 you can add a custom specification to prevent a field being validated.
+
+Simply add the property ```'x-do-not-validate': true``` to your  definition of a property to prevent the property being validated.
+
 ## Custom Field Validators
 You can add a custom field validator for a model to the validator from version 1.0.3 onwards.  This allows you to add a
 function that will be called for any specific field that you need validated with extra rules.
