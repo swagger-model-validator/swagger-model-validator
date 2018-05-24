@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -29,6 +29,15 @@
   },
   "contributors": [
     {
+      "name": "Joe Mulvaney",
+      "email": null,
+      "url": "https://github.com/mycrobe",
+      "contributions": 2,
+      "additions": 283,
+      "deletions": 50,
+      "hireable": null
+    },
+    {
       "name": "Abhilash Chelankara",
       "email": null,
       "url": "https://github.com/abhiche",
@@ -47,15 +56,6 @@
       "hireable": null
     },
     {
-      "name": "Rory O'Connor",
-      "email": null,
-      "url": "https://github.com/roryoconnor",
-      "contributions": 2,
-      "additions": 137,
-      "deletions": 0,
-      "hireable": null
-    },
-    {
       "name": "Vu Nguyen",
       "email": null,
       "url": "https://github.com/vudknguyen",
@@ -65,21 +65,30 @@
       "hireable": null
     },
     {
-      "name": "Gareth Coleman",
+      "name": "Brian Hou",
       "email": null,
-      "url": "https://github.com/layerzerolabs",
-      "contributions": 2,
-      "additions": 5,
+      "url": "https://github.com/brhou",
+      "contributions": 3,
+      "additions": 61,
       "deletions": 6,
-      "hireable": true
+      "hireable": null
+    },
+    {
+      "name": "Rory O'Connor",
+      "email": null,
+      "url": "https://github.com/roryoconnor",
+      "contributions": 2,
+      "additions": 137,
+      "deletions": 0,
+      "hireable": null
     },
     {
       "name": "Brody Dunn",
       "email": null,
       "url": "https://github.com/brodyd",
-      "contributions": 107,
-      "additions": 6773,
-      "deletions": 919,
+      "contributions": 126,
+      "additions": 8116,
+      "deletions": 1851,
       "hireable": null
     },
     {
@@ -92,13 +101,13 @@
       "hireable": true
     },
     {
-      "name": "Brian Hou",
+      "name": "Gareth Coleman",
       "email": null,
-      "url": "https://github.com/brhou",
-      "contributions": 3,
-      "additions": 61,
+      "url": "https://github.com/layerzerolabs",
+      "contributions": 2,
+      "additions": 5,
       "deletions": 6,
-      "hireable": null
+      "hireable": true
     },
     {
       "name": "Andrew Kandels",
@@ -110,21 +119,12 @@
       "hireable": null
     },
     {
-      "name": null,
+      "name": "Sreeram Sreedharan",
       "email": null,
       "url": "https://github.com/ssreedharan",
       "contributions": 1,
       "additions": 1,
       "deletions": 1,
-      "hireable": null
-    },
-    {
-      "name": "Joe Mulvaney",
-      "email": null,
-      "url": "https://github.com/mycrobe",
-      "contributions": 2,
-      "additions": 283,
-      "deletions": 50,
       "hireable": null
     },
     {
