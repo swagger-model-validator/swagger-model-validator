@@ -5,7 +5,7 @@
 
 [![NPM](https://nodei.co/npm/swagger-model-validator.png?downloads=true)](https://nodei.co/npm-dl/swagger-model-validator/)
 
-This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) and for [Open API](https://https://swagger.io/specification/) models (version 3.0) for Node.js.
+This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) and for [Open API](https://swagger.io/specification/) models (version 3.0) for Node.js.
 
 See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express) sample for more details about Swagger in Node.js.
 
