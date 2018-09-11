@@ -133,8 +133,18 @@ var validation = swagger.validateModel("modelName", target, true, true);
 From 2.1.4 you can add a custom specification to allow a required object to be null.
 This is different from not being present in the body of the request or response.
 
-Simple add the property ```'x-nullable': true``` to your definition of a required property to allow the value of null to pass validation.
+Simply add the property ```'x-nullable': true``` to your definition of a required property to allow the value of null to pass validation.
 This has no effect on any property that is not required.
+
+## Added Support for nullable required properties
+From 3.0.5 you can use the nullable property to allow a required object to be null.
+This works exactly the same was as x-nullable.
+
+```
+'nullable': true
+```
+
+This change has also added the support for using this (and x-nullable) with a false value.  Previously this would have been the same as true.
 
 ## Skip validation of a single field
 From 3.0.1 you can add a custom specification to prevent a field being validated.

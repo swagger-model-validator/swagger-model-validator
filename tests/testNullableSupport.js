@@ -6,7 +6,7 @@ var validator = new Validator();
 
 //noinspection JSUnusedGlobalSymbols
 module.exports.validatorTests = {
-    allowNullableRequiredPropertiesToBeNull: function(test) {
+    allowXNullableRequiredPropertiesToBeNull: function(test) {
         var data = {
             id: 1,
             count: null
@@ -33,7 +33,88 @@ module.exports.validatorTests = {
 
         test.done();
     },
-    doNotAllowNullableRequiredPropertiesToBeMissing: function(test) {
+    allowXNullableFalseRequiredProperties: function(test) {
+        var data = {
+            id: 1,
+            count: null
+        };
+        var model = {
+            required: [ 'id', 'count' ],
+            properties: {
+                id: {
+                    type: 'number',
+                    description: 'The object id'
+                },
+                count: {
+                    type: 'number',
+                    description: 'A number',
+                    'x-nullable': false
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    allowNullableRequiredPropertiesToBeNull: function(test) {
+        var data = {
+            id: 1,
+            count: null
+        };
+        var model = {
+            required: [ 'id', 'count' ],
+            properties: {
+                id: {
+                    type: 'number',
+                    description: 'The object id'
+                },
+                count: {
+                    type: 'number',
+                    description: 'A number',
+                    nullable: true
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    allowNullableFalseRequiredProperties: function(test) {
+        var data = {
+            id: 1,
+            count: null
+        };
+        var model = {
+            required: [ 'id', 'count' ],
+            properties: {
+                id: {
+                    type: 'number',
+                    description: 'The object id'
+                },
+                count: {
+                    type: 'number',
+                    description: 'A number',
+                    nullable: false
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(!errors.valid);
+
+        test.done();
+    },
+    doNotAllowXNullableRequiredPropertiesToBeMissing: function(test) {
         var data = {
             id: 1
         };
@@ -59,7 +140,7 @@ module.exports.validatorTests = {
 
         test.done();
     },
-    doNotAllowNullableRequiredPropertiesToBeBlank: function(test) {
+    doNotAllowXNullableRequiredPropertiesToBeBlank: function(test) {
         var data = {
             id: 1,
             count: ''
