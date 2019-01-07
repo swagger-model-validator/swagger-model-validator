@@ -236,7 +236,8 @@ module.exports.validatorTests = {
                     "type": "string"
                 },
                 "some": {
-                    "$ref": "#/definitions/Something"
+                    "$ref": "#/definitions/Something",
+                    "nullable" : true
                 }
             }
         };
@@ -245,6 +246,77 @@ module.exports.validatorTests = {
 
         test.expect(1);
         test.ok(errors.valid);
+        test.done();
+    },
+    Issue106DefinitionTest: function(test) {
+        const data = {
+            name: "zzz",
+            some: null
+        };
+
+        const swagger = {
+            definitions: {
+                Something: {
+                    type: "string"
+                },
+                Data: {
+                    type: "object",
+                    required: [
+                        "name",
+                    ],
+                    properties: {
+                        name: {
+                            type: "string",
+                        },
+                        some: {
+                            $ref: "#/definitions/Something",
+                        },
+                    },
+                },
+            },
+        };
+
+        const Validator = require("../lib/modelValidator.js");
+        const validator = new Validator(swagger);
+        var result = swagger.validateModel("Data", data);
+
+        test.expect(1);
+        test.ok(result.valid);
+        test.done();
+    },
+    Issue106Definition2Test: function(test) {
+        const data = {
+            name: "zzz",
+        };
+
+        const swagger = {
+            definitions: {
+                Something: {
+                    type: "string"
+                },
+                Data: {
+                    type: "object",
+                    required: [
+                        "name",
+                    ],
+                    properties: {
+                        name: {
+                            type: "string",
+                        },
+                        some: {
+                            $ref: "#/definitions/Something",
+                        },
+                    },
+                },
+            },
+        };
+
+        const Validator = require("../lib/modelValidator.js");
+        const validator = new Validator(swagger);
+        var result = swagger.validateModel("Data", data);
+
+        test.expect(1);
+        test.ok(result.valid);
         test.done();
     }
 };
