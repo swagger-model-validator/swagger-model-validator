@@ -54,6 +54,8 @@ by the swagger function validateModel or if the native validate is called with a
 As from version 1.0.0 it will now validate arrays in models.  It will validate arrays of a type and arrays of a $ref.
 
 As from version 2.1.5 it will validate models using the ```allOf``` keyword.
+
+As from version 3.0.8 it will validate models using the ```oneOf``` keyword.
 ## Installation
 Install swagger-model-validator
 
