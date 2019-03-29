@@ -201,5 +201,118 @@ module.exports.validationTests = {
         test.ok(errors.errors[0].message === "sample is not an array. An array is expected.", errors.errors[0].message);
 
         test.done();
+    },
+    arrayTypeIsOnOf: function(test) {
+        data = {
+            lines: [
+                {
+                    productId: 'myProductId'
+                },
+                {
+                    name: 'myProductName'
+                }
+            ]
+        };
+        models = {
+            datamodel: {
+                "type": "object",
+                "properties": {
+                    "lines": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/definitions/line-name"
+                                },
+                                {
+                                    "$ref": "#/definitions/line-productId"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "line-name": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "line-productId": {
+                "type": "object",
+                "properties": {
+                    "productId": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+
+        var errors = validator.validate(data, models.datamodel, models);
+
+        test.expect(1);
+        test.ok(errors.valid);
+        test.done();
+    },
+    arrayTypeIsOnOfFails: function(test) {
+        data = {
+            lines: [
+                {
+                    productid: 'myProductId'
+                },
+                {
+                    name: 1
+                }
+            ]
+        };
+        models = {
+            datamodel: {
+                "type": "object",
+                "properties": {
+                    "lines": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/definitions/line-name"
+                                },
+                                {
+                                    "$ref": "#/definitions/line-productId"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "line-name": {
+                "type": "object",
+                "required": [ "name" ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "line-productId": {
+                "type": "object",
+                "required": [ "productId" ],
+                "properties": {
+                    "productId": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+
+        var errors = validator.validate(data, models.datamodel, models);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.equals(errors.errors[0].message, "Item 0 in Array (lines) contains an object that is not one of the possible types");
+        test.done();
     }
 };
