@@ -146,5 +146,8 @@
       "deletions": 1,
       "hireable": true
     }
-  ]
+  ],
+  "dependencies": {
+    "lodash": "4.17.11"
+  }
 }
