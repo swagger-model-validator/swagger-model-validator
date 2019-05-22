@@ -314,5 +314,69 @@ module.exports.validationTests = {
         test.ok(!errors.valid);
         test.equals(errors.errors[0].message, "Item 0 in Array (lines) contains an object that is not one of the possible types");
         test.done();
-    }
+    },
+    arrayUniqueItemNoRef: function(test) {
+        var data = {
+            sample: [ "test", "test", "tribble" ]
+        };
+        var model = {
+            required: [ 'sample' ],
+            properties: {
+                sample: {
+                    type: 'array',
+                    uniqueItems: true,
+                    items: {
+                        type: "string"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(3);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0] instanceof Error)
+        test.ok(errors.errors[0].message === 'Item test is duplicated in sample');
+
+        test.done();
+    },
+    arrayUniqueItemWithRef: function(test) {
+        var data = {
+            sample: [ { id: 1, name: 'test'}, { id: 1, name: 'test'} ]
+        };
+        var models = {
+            model: {
+                required: [ 'sample' ],
+                properties: {
+                    sample: {
+                        type: 'array',
+                        uniqueItems: true,
+                        items: {
+                            $ref: "refModel"
+                        }
+                    }
+                }
+            },
+            refModel: {
+                required: [ 'id' ],
+                properties: {
+                    id: {
+                        type: "integer"
+                    },
+                    name: {
+                        type: "string"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, models["model"], models);
+
+        test.expect(3);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0] instanceof Error);
+        test.ok(errors.errors[0].message === 'Item sample contains duplicated fields');
+        test.done();
+    },
 };
