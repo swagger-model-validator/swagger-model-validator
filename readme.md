@@ -38,6 +38,13 @@ This package has had some activity to align it with the Open API 3.0 specificati
 
 RegEx Pattern support was added (Thanks @julianpellasrice)
 
+## Node Versions
+This package is only compatible with Node 0.10, 0.12 and IO.JS up to verion 3.0.10.
+
+From version 3.0.11 it is not compatible with those versions of node (or with IO.JS).
+
+Version 3.0.11 introduced a dependency on Lodash.IsEqual to check that array items are unique (if the uniqueItems property is set to true).  (Thanks @baudicj)
+
 ## Validation Notes
 It will validate int32 properly but the way javascript handles int64 makes it impossible to accurately validate int64s.
 As long as the value can be parsed by parseInt in javascript it will be accepted as an int64.
