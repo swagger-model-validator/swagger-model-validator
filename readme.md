@@ -39,7 +39,7 @@ This package has had some activity to align it with the Open API 3.0 specificati
 RegEx Pattern support was added (Thanks @julianpellasrice)
 
 ## Node Versions
-This package is only compatible with Node 0.10, 0.12 and IO.JS up to verion 3.0.10.
+This package is only compatible with Node 0.10, 0.12 and IO.JS up to version 3.0.10.
 
 From version 3.0.11 it is not compatible with those versions of node (or with IO.JS).
 
