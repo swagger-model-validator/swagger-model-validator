@@ -49,6 +49,79 @@ module.exports.validationTests = {
 
         test.done();
     },
+    arrayNullWhenNullable: function(test) {
+        var data = {
+            sample: null
+        };
+        var model = {
+            required: [ 'sample' ],
+            properties: {
+                sample: {
+                    type: 'array',
+                    items: {
+                        type: "string"
+                    },
+                    "x-nullable": true
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    arrayNullWhenNullable2: function(test) {
+        var data = {
+            sample: null
+        };
+        var model = {
+            required: [ 'sample' ],
+            properties: {
+                sample: {
+                    type: 'array',
+                    items: {
+                        type: "string"
+                    },
+                    "nullable": true
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
+    arrayNullWhenNotNullable: function(test) {
+        var data = {
+            sample: null
+        };
+        var model = {
+            required: [ 'sample' ],
+            properties: {
+                sample: {
+                    type: 'array',
+                    items: {
+                        type: "string"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        //test.ok(errors.errors.length === 1, errors.errors.length);
+        test.ok(errors.errors[0].message === 'sample is a required field', errors.errors[0].message);
+
+        test.done();
+    },
     arrayTypeRequired: function(test) {
         var data = {
             sample: [ "test", "face", "tribble" ]
@@ -199,6 +272,30 @@ module.exports.validationTests = {
         test.expect(2);
         test.ok(!errors.valid);
         test.ok(errors.errors[0].message === "sample is not an array. An array is expected.", errors.errors[0].message);
+
+        test.done();
+    },
+    arrayTypeIsNull: function(test) {
+        var data = {
+            sample: null
+        };
+        var model = {
+            required: [ 'sample' ],
+            properties: {
+                sample: {
+                    type: 'array',
+                    items: {
+                        type: "string"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === 'sample is a required field', errors.errors[0].message);
 
         test.done();
     },
