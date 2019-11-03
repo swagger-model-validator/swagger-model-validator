@@ -247,5 +247,34 @@ module.exports.patternTests = {
         test.expect(1);
         test.ok(errors.valid);
         test.done();
+    },
+    doesNotMatchPattern2: function (test) {
+        var data = {
+            "patternType": { "restrictedField": "W3" }
+        };
+
+        var models = {
+            "MyType": {
+                "type": "object",
+                "properties": {
+                    "patternType": {
+                        "type": "object",
+                        "properties": {
+                            "restrictedField": {
+                                "type": "string",
+                                "pattern": "^[A-Z]{2}"
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, models["MyType"], models);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === 'restrictedField does not match the pattern ^[A-Z]{2}', 'message: ' + errors.errors[0].message);
+        test.done();
     }
 };
