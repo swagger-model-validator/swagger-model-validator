@@ -276,5 +276,87 @@ module.exports.patternTests = {
         test.ok(!errors.valid);
         test.ok(errors.errors[0].message === 'restrictedField does not match the pattern ^[A-Z]{2}', 'message: ' + errors.errors[0].message);
         test.done();
-    }
+    },
+    patternTestWithinOneOf: function(test) {
+		var data = {
+			contactMechanism: {
+			  line1: '300 E Main St',
+			  city: 'Madison',
+			  stateCode: 'WI',
+			  zip5: '537805'
+			},
+			name: {
+			  first: 'John',
+			  last: 'Smith'
+			}
+		};
+
+		var models = {
+			AddressType: {
+				type: 'object',
+				properties: {
+				line1: {
+					type: 'string'
+				},
+				line2: {
+					type: 'string'
+				},
+				city: {
+					type: 'string'
+				},
+				stateCode: {
+					type: 'string',
+					pattern: '^([A-Z]{2})$'
+				},
+				zip5: {
+					type: 'string',
+					pattern: '^([0-9]{5})$'
+				}
+				},
+				required: ['line1', 'city', 'stateCode', 'zip5']
+			},
+			ContactMechanisms: {
+				oneOf: [
+					{$ref: '#/components/schemas/AddressType'},
+					{$ref: '#/components/schemas/PhoneType'}
+				]
+			},
+			Person: {
+				type: 'object',
+				properties: {
+                    contactMechanism: {
+                        $ref: '#/components/schemas/ContactMechanisms'
+				    },
+				    name: {
+					    $ref: '#/components/schemas/Name'
+				    }
+				},
+				required: ['contactMechanism', 'name']
+			},
+			Name: {
+				type: 'object',
+				properties: {
+				first: {type: 'string', description: "First name, e.g. 'John'"},
+				last: {type: 'string', description: "Last name, e.g. 'Smith'"}
+				},
+				required: ['first', 'last']
+			},
+			PhoneType: {
+			  type: 'object',
+			  properties: {
+				number: {
+					type: 'string',
+					format: 'phone'
+				}
+			  },
+			  required: ['number']
+			}
+		};
+
+		var errors = validator.validate(data, models["Person"], models, false, true);
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === "Error: contactMechanism is not a valid target for a oneOf", errors.errors[0].message);
+		test.done();
+	}
 };

@@ -5,14 +5,14 @@
 
 [![NPM](https://nodei.co/npm/swagger-model-validator.png?downloads=true)](https://nodei.co/npm-dl/swagger-model-validator/)
 
-This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) and for [Open API](https://swagger.io/specification/) models (version 3.0) for Node.js.
+This is a validation module for [Swagger](https://github.com/swagger-api/swagger-spec) models (version 1.2 and 2.0) and for [Open API](https://swagger.io/specification/) models (version 3.0) for Node.js and has been developed using WebStorm.
 
 The latest version is backwards compatible with all previous releases and supports all versions of Swagger (1.2 and 2.0) and Open API (3.0).  We will try and keep it backward compatible in the future as well.  
 We will increment the Major and Minor versions to match the maximum version of the Open API supported (currently 3.0).
 
 See the [swagger-node-express](https://github.com/swagger-api/swagger-node-express) sample for more details about Swagger in Node.js.
 
-This is tested against the NodeJS 0.10, 0.12 and the latest stable versions of IOJS and NodeJS 4, 5, 6, 7, 8, 9 and 10 using [Travis](https://travis-ci.org/atlantishealthcare/swagger-model-validator).
+This is tested against and the latest stable versions of NodeJS 4, 5, 6, 7, 8, 9, 10, 11, 12 and 13 using [Travis](https://travis-ci.org/swagger-model-validator/swagger-model-validator).
 
 ## What's Open API?
 The goal of OpenAPI™ (formerly Swagger) is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, OpenAPI removes the guesswork in calling the service.
