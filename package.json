@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "3.0.11",
+  "version": "3.0.12",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -30,7 +30,7 @@
   },
   "contributors": [
     {
-      "name": null,
+      "name": "Sreeram Sreedharan",
       "email": null,
       "url": "https://github.com/ssreedharan",
       "contributions": 1,

@@ -298,29 +298,33 @@ module.exports.refTests = {
             }
         };
 
-        var model = {
-            "type": "object",
-            allOf: [{
-                properties: {
-                    sample: {
-                        type: "boolean"
-                    }
-                }
-            }, {
-                properties: {
-                    location: {
-                        right: {
-                            type: "integer"
-                        },
-                        bottom: {
-                            type: "integer"
+        var models = {
+            dataModel: {
+                allOf: [{
+                    properties: {
+                        sample: {
+                            type: "boolean"
                         }
                     }
-                }
-            }]
+                }, {
+                    properties: {
+                        location: {
+                            type: 'object',
+                            properties: {
+                                right: {
+                                    type: "integer"
+                                },
+                                bottom: {
+                                    type: "integer"
+                                }
+                            }
+                        }
+                    }
+                }]
+            }
         };
 
-        var errors = validator.validate(data, model);
+        var errors = validator.validate(data, models["dataModel"], models);
 
         test.expect(1);
         test.ok(errors.valid);
