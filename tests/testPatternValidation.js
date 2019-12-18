@@ -356,7 +356,17 @@ module.exports.patternTests = {
 		var errors = validator.validate(data, models["Person"], models, false, true);
         test.expect(2);
         test.ok(!errors.valid);
-        test.ok(errors.errors[0].message === "Error: contactMechanism is not a valid target for a oneOf", errors.errors[0].message);
+		var errorExists = false;
+		for (var error of errors.errors) {
+		  if (error.message) {
+			console.log(error.message);
+			errorExists = error.message.includes(
+			  "contactMechanism is not a valid target for a oneOf"
+			);
+		  }
+		}
+		test.ok(errorExists);
+	
 		test.done();
 	}
 };
