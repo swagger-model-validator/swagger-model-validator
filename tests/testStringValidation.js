@@ -28,6 +28,51 @@ module.exports.validationTests = {
 
         test.done();
     },
+    invalidEmailFormatTest: function(test) {
+        var data = {
+            id: "This is a string but not an email"
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'string',
+                    format: 'email',
+                    description: 'The object id'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.ok(errors.errors[0].message === 'id (This is a string but not an email) is not a type of email', errors.errors[0].message);
+
+        test.done();
+    },
+    validEmailFormatTest: function(test) {
+        var data = {
+            id: "test@test.com"
+        };
+        var model = {
+            required: [ 'id' ],
+            properties: {
+                id: {
+                    type: 'string',
+                    format: 'email',
+                    description: 'An email'
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
     allowArbitraryFormat: function(test) {
         var data = {
             id: 'valid string here'
