@@ -115,6 +115,19 @@ module.exports.validationTests = {
 
         test.done();
     },
+    validPrimitiveIntegerTypeTest: function(test) {
+        var data = 1;
+        var model = {
+            type: 'integer',
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(1);
+        test.ok(errors.valid);
+
+        test.done();
+    },
     validInteger32TypeTest: function(test) {
         var data = {
             id: 1
