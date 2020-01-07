@@ -303,8 +303,7 @@ module.exports.refTests = {
         models["dataModel"].components.schemas.exampleSchema,
         models
       );
-  
-      console.log(errors);
+
       test.expect(1);
       test.ok(errors.valid);
       test.done();

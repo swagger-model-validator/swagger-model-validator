@@ -359,7 +359,6 @@ module.exports.patternTests = {
 		var errorExists = false;
 		for (var error of errors.errors) {
 		  if (error.message) {
-			console.log(error.message);
 			errorExists = error.message.includes(
 			  "contactMechanism is not a valid target for a oneOf"
 			);
