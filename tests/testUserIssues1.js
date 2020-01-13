@@ -67,5 +67,25 @@ module.exports.validatorTests = {
         test.ok(result.valid);
         test.ok(result.errorCount === 0);
         test.done();
+    },
+    testUndefinedRequiredItem: function(test) {
+        test.expect(1);
+
+        var model = {
+            type: "object",
+            required: [ "propertyOfModel" ],
+            properties: {
+                propertyOfModel: {
+                    type: "string"
+                }
+            }
+        };
+
+        var target = { propertyOfModel: undefined }
+
+        var result = validator.validate(target, model);
+
+        test.ok(!result.valid);
+        test.done();
     }
 };
