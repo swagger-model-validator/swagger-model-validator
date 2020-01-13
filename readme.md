@@ -2,6 +2,7 @@
 [ ![Codeship Status for atlantishealthcare/swagger-model-validator](https://codeship.com/projects/a4ec3310-3b9b-0132-060c-1e7e00028aa9/status?branch=master)](https://codeship.com/projects/42728) 
 [ ![npm version](https://badge.fury.io/js/swagger-model-validator.svg)](https://badge.fury.io/js/swagger-model-validator)
 [![Build Status](https://travis-ci.org/swagger-model-validator/swagger-model-validator.svg?branch=master)](https://travis-ci.org/swagger-model-validator/swagger-model-validator)
+[![Known Vulnerabilities](https://snyk.io/test/npm/swagger-model-validator/3.0.15/badge.svg)](https://snyk.io/test/npm/swagger-model-validator/3.0.15)
 
 [![NPM](https://nodei.co/npm/swagger-model-validator.png?downloads=true)](https://nodei.co/npm-dl/swagger-model-validator/)
 
