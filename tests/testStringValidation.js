@@ -131,9 +131,8 @@ module.exports.validationTests = {
 
         var errors = validator.validate(data, model);
 
-        test.expect(2);
-        test.ok(!errors.valid);
-        test.ok(errors.errors[0].message === 'id is a required field');
+        test.expect(1);
+        test.ok(errors.valid);
 
         test.done();
     },
