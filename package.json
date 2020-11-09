@@ -1,6 +1,6 @@
 {
-  "name": "swagger-model-validator",
-  "version": "3.0.19",
+  "name": "swagger-model-validator-exp",
+  "version": "3.0.19.1",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
