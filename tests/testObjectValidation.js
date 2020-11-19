@@ -39,4 +39,43 @@ module.exports.validationTests = {
 
         test.done();
     },
+    typeFieldWrongType: function(test) {
+        var data = {
+            "id": "1",
+            "testObject": {
+                "testObjectProperty": "testObjectString"
+            }
+        };
+
+        var model = {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "ID"
+                },
+                "testObject": {
+                    // type should be a string, not an object
+                    "type": {
+                        "type": "object"
+                    },
+                    "properties": {
+                        "testObjectProperty": {
+                            "type": "string",
+                            "description": "testObjectProperty Description"
+                        }
+                    },
+                    "description": "Testing Example"
+                }
+            }
+        };
+
+        var errors = validator.validate(data, model);
+
+        test.expect(2);
+        test.ok(!errors.valid);
+        test.equals(errors.errors[0].message, "Schema property (testObject) has a non string 'type' field")
+
+        test.done()
+    }
 };
