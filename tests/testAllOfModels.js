@@ -293,7 +293,6 @@ module.exports.refTests = {
         var data = {
             location: {
                 top: 1,
-                left: 1,
             }
         };
 
@@ -341,10 +340,11 @@ module.exports.refTests = {
 
         var errors = validator.validate(data, models["dataModel"], models);
 
-        test.expect(3);
+        test.expect(4);
         test.ok(!errors.valid);
-        test.ok(errors.errorCount === 1, "Errors: " + errors.errors);
-        test.ok(errors.errors[0].message === 'sample is a required field');
+        test.ok(errors.errorCount === 2, "Errors: " + errors.errors);
+        test.ok(errors.errors[0].message === 'left is a required field');
+        test.ok(errors.errors[1].message === 'sample is a required field');
         test.done();
     },
     hasAllOf: function(test) {
