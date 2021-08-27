@@ -289,6 +289,64 @@ module.exports.refTests = {
         test.ok(!errors.valid);
         test.done();
     },
+    hasAllOfPropertyTestWithMissingRequiredFields: function(test) {
+        var data = {
+            location: {
+                top: 1,
+                left: 1,
+            }
+        };
+
+        var models = {
+            dataModel: {
+                type: "object",
+                required: [ "location" ],
+                properties: {
+                    location: {
+                        allOf: [
+                            {
+                                $ref: '#/definitions/Location'
+                            },
+                            {
+                                type: "object",
+                                required: [ "sample" ],
+                                properties: {
+                                    sample: {
+                                        type: "boolean"
+                                    }
+                                }
+                            },
+                        ]
+                    }
+                }
+            },
+            Location: {
+                required: [ "top", "left" ],
+                properties: {
+                    top: {
+                        type: "integer"
+                    },
+                    left: {
+                        type: "integer"
+                    },
+                    right: {
+                        type: "integer"
+                    },
+                    bottom: {
+                        type: "integer"
+                    }
+                }
+            }
+        };
+
+        var errors = validator.validate(data, models["dataModel"], models);
+
+        test.expect(3);
+        test.ok(!errors.valid);
+        test.ok(errors.errorCount === 1, "Errors: " + errors.errors);
+        test.ok(errors.errors[0].message === 'sample is a required field');
+        test.done();
+    },
     hasAllOf: function(test) {
         var data = {
             sample: true,
