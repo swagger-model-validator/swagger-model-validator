@@ -49,9 +49,9 @@ module.exports.validationTests = {
 
         var errors = validator.validate(data, model);
 
-        test.expect(1);
+        test.expect(2);
         test.ok(!errors.valid);
-
+        test.ok(errors.errors[0].message === 'sample must be one of the following: test, mix');
         test.done();
     },
     validateEnumEmpty: function(test) {
