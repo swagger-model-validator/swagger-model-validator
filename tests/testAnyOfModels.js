@@ -224,9 +224,10 @@ module.exports.refTests = {
 
         var errors = validator.validate(data, models["dataModel"], models);
 
-        test.expect(2);
+        test.expect(3);
         test.ok(!errors.valid);
-        test.ok(errors.errorCount === 4, "Errors: " + errors.errors);
+        test.ok(errors.errorCount === 5, "Errors: " + errors.errors);
+        test.ok(errors.errors[4].message === 'Item 4 in Array (rootModel) contains an object that is not one of the possible types');
         test.done();
     }
 };
