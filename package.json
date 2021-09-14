@@ -10,12 +10,12 @@
   "license": "MIT",
   "author": "Brody Dunn",
   "bugs": {
-    "url": "https://github.com/atlantishealthcare/swagger-model-validator/issues"
+    "url": "https://github.com/swagger-model-validator/swagger-model-validator/issues"
   },
-  "homepage": "https://github.com/atlantishealthcare/swagger-model-validator",
+  "homepage": "https://github.com/swagger-model-validator/swagger-model-validator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atlantishealthcare/swagger-model-validator.git"
+    "url": "https://github.com/swagger-model-validator/swagger-model-validator.git"
   },
   "files": [
     "index.js",
