@@ -1,0 +1,159 @@
+{
+  "projectName": "swagger-model-validator",
+  "projectOwner": "Brody Dunn",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "contributors.md",
+    "readme.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "brodyd",
+      "name": "Brody Dunn",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2774160?v=4",
+      "profile": "https://github.com/brodyd",
+      "contributions": [
+        "question",
+        "bug",
+        "code",
+        "content",
+        "data",
+        "design",
+        "doc",
+        "example",
+        "infra",
+        "maintenance",
+        "projectManagement",
+        "research",
+        "review",
+        "security",
+        "test",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "ssreedharan",
+      "name": "ssreedharan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6464478?v=4",
+      "profile": "https://github.com/ssreedharan",
+      "contributions": [
+        "code",
+        "design",
+        "ideas"
+      ]
+    },
+    {
+      "login": "hugoduraes",
+      "name": "Hugo Durães",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1050268?v=4",
+      "profile": "http://hugoduraes.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "MitchellBurton",
+      "name": "Mitchell Lawson-Burton",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7017168?v=4",
+      "profile": "https://github.com/MitchellBurton",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "brhou",
+      "name": "Brian Hou",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8788114?v=4",
+      "profile": "https://github.com/brhou",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "layerzerolabs",
+      "name": "Gareth Coleman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5329943?v=4",
+      "profile": "http://www.l0l.org.uk/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "roryoconnor",
+      "name": "Rory Anthony O'Connor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10120520?v=4",
+      "profile": "https://github.com/roryoconnor",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "julianpellasrice",
+      "name": "julianpellasrice",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26866290?v=4",
+      "profile": "https://github.com/julianpellasrice",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "mycrobe",
+      "name": "Joe Mulvaney",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40182?v=4",
+      "profile": "https://github.com/mycrobe",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "abhiche",
+      "name": "Abhilash Chelankara",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5969234?v=4",
+      "profile": "https://github.com/abhiche",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "akandels",
+      "name": "Andrew Kandels",
+      "avatar_url": "https://avatars.githubusercontent.com/u/142410?v=4",
+      "profile": "https://www.linkedin.com/in/andrewkandels",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "vudknguyen",
+      "name": "Vu Nguyen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16699073?v=4",
+      "profile": "https://github.com/vudknguyen",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "JimiFord",
+      "name": "JimiFord",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58951452?v=4",
+      "profile": "https://github.com/JimiFord",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "rogermui",
+      "name": "Roger Mui",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13083577?v=4",
+      "profile": "https://github.com/rogermui",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
