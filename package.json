@@ -1,6 +1,6 @@
 {
   "name": "swagger-model-validator",
-  "version": "3.0.21",
+  "version": "3.0.22",
   "description": "Validate incoming objects against Swagger Models.",
   "keywords": [
     "Swagger",
@@ -10,12 +10,12 @@
   "license": "MIT",
   "author": "Brody Dunn",
   "bugs": {
-    "url": "https://github.com/atlantishealthcare/swagger-model-validator/issues"
+    "url": "https://github.com/swagger-model-validator/swagger-model-validator/issues"
   },
-  "homepage": "https://github.com/atlantishealthcare/swagger-model-validator",
+  "homepage": "https://github.com/swagger-model-validator/swagger-model-validator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atlantishealthcare/swagger-model-validator.git"
+    "url": "https://github.com/swagger-model-validator/swagger-model-validator.git"
   },
   "files": [
     "index.js",
@@ -139,12 +139,30 @@
       "hireable": true
     },
     {
+      "name": "Roger Mui",
+      "email": null,
+      "url": "https://github.com/rogermui",
+      "contributions": 5,
+      "additions": 345,
+      "deletions": 21,
+      "hireable": null
+    },
+    {
+      "name": "Igor Korotach",
+      "email": null,
+      "url": "https://github.com/Emulebest",
+      "contributions": 1,
+      "additions": 45,
+      "deletions": 2,
+      "hireable": null
+    },
+    {
       "name": "Brody Dunn",
       "email": null,
       "url": "https://github.com/brodyd",
-      "contributions": 139,
-      "additions": 11145,
-      "deletions": 2027,
+      "contributions": 161,
+      "additions": 18228,
+      "deletions": 4273,
       "hireable": null
     }
   ],
